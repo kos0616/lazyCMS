@@ -4,6 +4,12 @@
 
 ## 指令
 
+Install
+
+`yarn`
+
+Run
+
 `yarn plop`
 
 ## 輸入
@@ -15,7 +21,7 @@
 
 ## 輸出
 
-1. 輸出內容都在 `/src` 內
+1. 輸出內容都在 `/dist` 內
 2. 可直接使用的項目有 `Service`  `*vue` `form.ts`
 3. `_locale.json` `_router.ts` 不能直接使用，需要**手動加入**
 

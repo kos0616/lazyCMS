@@ -1,15 +1,16 @@
 <template>
   <el-form @submit.prevent="advSearch" @reset.prevent="resetForm" :model="form">
+    {{#each form}}
     <el-form-item
-      :label="$i18n.global.t(inputForm.name.label)"
-      :prop="inputForm.name.searchId"
+      :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+      :prop="inputForm.{{this.key}}.searchId"
     >
       <el-input
-        :label="$i18n.global.t(inputForm.name.label)"
-        v-model="form[inputForm.name.searchId]"
+        :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+        v-model="form[inputForm.{{this.key}}.searchId]"
       />
     </el-form-item>
-
+    {{/each}}
     <hr />
     <div>
       <el-button

@@ -1,6 +1,3 @@
-const Service = require("./plop-templates/Service/index");
-const view = require("./plop-templates/view/index");
-
 /** 取得文件轉換過來的值 */
 const inputs = require("./lib/fileReader");
 const API = inputs.API.trim();
@@ -9,6 +6,9 @@ const key = inputs.key;
 
 /** 整理問題 */
 const setPrompts = require("./lib/setPrompts");
+
+const Service = require("./plop-templates/Service/index");
+const view = require("./plop-templates/view/index");
 
 const FOLDER = {
   description: "API 文件轉為資料夾並且輸出",

@@ -13,17 +13,19 @@
           \{{ $i18n.global.t('Util.create') }}
         </div>
         <div class="card-body d-lg-flex flex-wrap">
+          {{#each form}}
           <el-form-item
-            :label="$i18n.global.t(inputForm.name.label)"
-            :prop="inputForm.name.id"
+            :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+            :prop="inputForm.{{this.key}}.id"
+            :rules="inputForm.{{this.key}}.rules"
             class="col-12"
           >
             <el-input
-              disabled
-              :placeholder="$i18n.global.t(inputForm.name.label)"
-              v-model="form[inputForm.name.id]"
+              :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+              v-model="form[inputForm.{{this.key}}.id]"
             />
           </el-form-item>
+          {{/each}}
         </div>
       </div>
     </div>

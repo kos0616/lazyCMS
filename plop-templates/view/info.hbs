@@ -10,12 +10,14 @@
           \{{ $i18n.global.t('Util.info') }}
         </div>
         <div class="card-body d-lg-flex flex-wrap">
+          {{#each form}}
           <el-form-item
-            :label="$i18n.global.t(inputForm.name.label)"
+            :label="$i18n.global.t(inputForm.{{this.key}}.label)"
             class="col-12"
           >
-            \{{ form[inputForm.name.id] || '&nbsp;' }}
+            \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
           </el-form-item>
+          {{/each}}
         </div>
       </div>
     </div>

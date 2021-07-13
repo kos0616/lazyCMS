@@ -15,19 +15,12 @@
       size="mini"
     >
       <el-table-column type="selection" width="40" />
+      {{#each form}}
       <el-table-column
-        :label="$i18n.global.t(inputForm.name.label)"
-        :prop="inputForm.name.id"
+        :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+        :prop="inputForm.{{this.key}}.id"
       />
-      <el-table-column
-        :label="$i18n.global.t(inputForm.name.label)"
-        :prop="inputForm.name.id"
-      >
-        <template #default="prop">
-          \{{ prop.row[inputForm.name.id] }}
-        </template>
-      </el-table-column>
-
+      {{/each}}
       <el-table-column :label="$i18n.global.t('Util.operate')" width="240">
         <template #default="prop">
           <router-link
@@ -84,10 +77,10 @@
         :key="index"
       >
         <el-form>
-          <el-form-item :label="$i18n.global.t(inputForm.name.label)">
-            <span>\{{ item[inputForm.name.id] }}</span>
-          </el-form-item>
-
+          {{#each form}}
+          <el-form-item :label="$i18n.global.t(inputForm.{{this.key}}.label)">
+            <span>\{{ item[inputForm.{{this.key}}}.id] }}</span>
+          {{/each}}
           <el-form-item :label="$i18n.global.t('Util.operate')">
             <router-link
               v-if="CRUD & 4"
