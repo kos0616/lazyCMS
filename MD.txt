@@ -12,5 +12,6 @@ PKG-180000-UserLevel
 參數				
 p18_ull_name	名稱	必填,字串,max:124	
 p18_ull_default	預設	必填,in{y,n}	y.是, n.否
-p18_ull_status	狀態	必填,in{3,-2}	3.啟用, -2.停用
+p18_ull_status	狀態	必填,in{3,-2}	3.啟用, -2.停用, -3.刪除
+p18_ull_addstatus	狀態	必填,in{3,-2}	1.庫存, 2.不在庫存, 3.薛丁格的庫存
 p18_ull_default: 所有使用者等級裡、最多只有一筆資料的"""p18_ull_default"""欄位為'y',其餘都是'n'
