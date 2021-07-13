@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "plop": "plop",
+    "test": "node lib/fileReader.js"
+  },
+  "description": "File generator",
+  "license": "MIT",
+  "author": {
+    "name": "Mark Liang",
+    "url": "https://www.notion.so/9db6df3259fc4a65bb40b35d02617a13"
+  },
+  "dependencies": {
+    "plop": "^2.7.4"
+  }
+}

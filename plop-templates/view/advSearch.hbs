@@ -1,0 +1,90 @@
+<template>
+  <el-form @submit.prevent="advSearch" @reset.prevent="resetForm" :model="form">
+    <el-form-item
+      :label="$i18n.global.t(inputForm.name.label)"
+      :prop="inputForm.name.searchId"
+    >
+      <el-input
+        :label="$i18n.global.t(inputForm.name.label)"
+        v-model="form[inputForm.name.searchId]"
+      />
+    </el-form-item>
+
+    <hr />
+    <div>
+      <el-button
+        :title="$i18n.global.t('Theme.search')"
+        native-type="submit"
+        type="success"
+      >
+        <icon icon="fas fa-search-plus"></icon>
+        \{{ $i18n.global.t('Theme.search') }}
+      </el-button>
+      <el-button native-type="reset" :title="$i18n.global.t('Theme.clean')">
+        <i class="el-icon-delete"></i>
+        \{{ $i18n.global.t('Theme.clean') }}
+      </el-button>
+      <el-button
+        @click="$emit('close')"
+        :title="$i18n.global.t('Theme.cancel')"
+        class="border-0"
+      >
+        <icon icon="fas fa-times"></icon>
+        \{{ $i18n.global.t('Theme.cancel') }}
+      </el-button>
+    </div>
+  </el-form>
+</template>
+
+<script lang='ts'>
+import { defineComponent, reactive, toRefs, onMounted } from 'vue';
+import { useRouter, useRoute, onBeforeRouteUpdate } from 'vue-router';
+import inputForm from './form';
+
+export default defineComponent({
+  name: '{{dashCase BASE_NAME}}--Search',
+  setup(prop, { emit }) {
+    const data = reactive({
+      form: {} as any,
+    });
+    const $router = useRouter();
+    const $route = useRoute();
+
+    const advSearch = () => {
+      const query = {
+        ...$route.query,
+        ...data.form,
+        search_complex: undefined,
+        page: 1,
+      };
+      $router.push({ query });
+      emit('close');
+    };
+
+    const resetForm = () => {
+      data.form = {};
+      const { path } = $route;
+      emit('close');
+      $router.push(path);
+    };
+
+    onMounted(async () => {
+      const { query } = $route;
+      data.form = { ...(query as Record<string, string>) };
+    });
+
+    onBeforeRouteUpdate((to) => {
+      const { query } = to;
+      data.form = { ...(query as Record<string, string>) };
+    });
+
+    const refData = toRefs(data);
+    return {
+      ...refData,
+      advSearch,
+      resetForm,
+      inputForm,
+    };
+  },
+});
+</script>

@@ -1,0 +1,93 @@
+<template>
+  <el-form
+    v-loading="$store.state.loading.isShow"
+    @submit.prevent="handleSubmitForm()"
+    :model="form"
+    label-position="top"
+    ref="REF_FORM"
+    class="detail-wrap"
+  >
+    <div class="detail" style="width: 100%">
+      <div class="card mb-3">
+        <div class="card-header">
+          \{{ $i18n.global.t('Util.create') }}
+        </div>
+        <div class="card-body d-lg-flex flex-wrap">
+          <el-form-item
+            :label="$i18n.global.t(inputForm.name.label)"
+            :prop="inputForm.name.id"
+            class="col-12"
+          >
+            <el-input
+              disabled
+              :placeholder="$i18n.global.t(inputForm.name.label)"
+              v-model="form[inputForm.name.id]"
+            />
+          </el-form-item>
+        </div>
+      </div>
+    </div>
+    <input type="submit" class="no-show" />
+  </el-form>
+</template>
+
+<script lang='ts'>
+import { reactive, toRefs, onMounted } from 'vue';
+import Modify from './Service/Modify';
+import inputForm from './form';
+import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
+import DoModify, { typeDoModify } from './Service/DoModify';
+import ELFORM from '@/modules/FPKG-20000-Util/API/elForm/index';
+import { useRoute, useRouter } from 'vue-router';
+
+export default {
+  name: '{{dashCase BASE_NAME}}--Modify',
+  setup() {
+    const { proxy } = utilTools();
+    const $route = useRoute();
+    const $router = useRouter();
+    const { REF_FORM, submitForm } = ELFORM();
+    const data = reactive({
+      form: {} as any,
+    });
+
+    /**
+     * getInfo 取得資料
+     */
+    const getInfo = async () => {
+      const { {{key}} } = $route.params;
+      if (!{{key}}) return;
+      const getter = await Modify({ {{~key~}} });
+      data.form = getter;
+    };
+
+    /** 送出表單 */
+    const handleSubmitForm = async () => {
+      await submitForm();
+      const getter = await DoModify(data.form);
+      if (getter) getInfo();
+    };
+
+    onMounted(() => {
+      proxy.$bus.$on('info', () => {
+        $router.push(
+          `/{{BASE}}/info/${$route.params.{{~key~}} }`,
+        );
+      });
+      proxy.$bus.$on('save', () => {
+        handleSubmitForm();
+      });
+      getInfo();
+    });
+
+    const refData = toRefs(data);
+
+    return {
+      ...refData,
+      REF_FORM,
+      handleSubmitForm,
+      inputForm,
+    };
+  },
+};
+</script>

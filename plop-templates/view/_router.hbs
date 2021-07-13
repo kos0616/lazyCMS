@@ -1,0 +1,46 @@
+[
+  {
+    path: '{{ROUTER_LAST}}/lists',
+    name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-lists',
+    component: () =>
+      import(/* webpackChunkName: "MODULE_{{ROUTER_FIRST}}" */ './{{folder}}/lists.vue'),
+    meta: {
+      title: 'NODE_72',
+      url: '{{API}}',
+      toolbar: ['search', 'advSearch', 'pager', 'create', 'delete'],
+    },
+  },
+  {
+    path: '{{ROUTER_LAST}}/create',
+    name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-create',
+    component: () =>
+      import(/* webpackChunkName: "MODULE_{{ROUTER_FIRST}}" */ './{{folder}}/create.vue'),
+    meta: {
+      title: 'NODE_72',
+      url: '{{API}}',
+      toolbar: ['saveAndGo', 'keepCreate'],
+    },
+  },
+  {
+    path: '{{ROUTER_LAST}}/info/:{{key}}',
+    name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-info',
+    component: () =>
+      import(/* webpackChunkName: "MODULE_{{ROUTER_FIRST}}" */ './{{folder}}/info.vue'),
+    meta: {
+      title: 'NODE_72',
+      url: '{{API}}',
+      toolbar: ['modify'],
+    },
+  },
+  {
+    path: '{{ROUTER_LAST}}/modify/:{{key}}',
+    name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-modify',
+    component: () =>
+      import(/* webpackChunkName: "MODULE_{{ROUTER_FIRST}}" */ './{{folder}}/modify.vue'),
+    meta: {
+      title: 'NODE_72',
+      url: '{{API}}',
+      toolbar: ['save', 'info'],
+    },
+  },
+]
