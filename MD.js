@@ -1,20 +1,18 @@
 module.exports = `
-p3_ant_id
-此項目權限依附於 tipTop/company/lists
-新增
+p25_cny_id
+此項目權限依附於 company/manage/lists
+新增(程序)
 
 項目	內容	說明	驗證	備註
-路徑	tipTop/company/create			
+路徑	company/manage/create			
 方法	POST			
 權限	新增			
 參數				
- p24_cny_name 	名稱	required;string	
-cp24_cny_host	host	required;string	  
-p24_cny_port	port	required;integer	
-p24_cny_database	database	required;number	
-p24_cny_username	username	required;string	
-ap24_cny_password	password	required;unix	
-p24_cny_charset	charset	required;string	
-p24_cny_prefix	prefix	nullable;string	
-cp24_cny_prefix_schema	prefix schema	nullable;string	
+p25_cny_name	公司名稱	必填,最長124字元	
+p25_cny_tax_id_number	統一編號	必填,最長124字元	
+p25_cny_principal_name	負責人姓名	必填,最長124字元	
+p25_cny_principal_phone	負責人電話	必填,最長124字元	
+p25_cny_register_address	登記地址	必填,最長124字元	
+p25_cny_business_address	營業地址	必填,最長124字元	
+p25_cny_memo	備註	最長124字元
 `;
