@@ -1,18 +1,16 @@
 
 p25_cny_id
-此項目權限依附於 company/manage/lists
-新增(程序)
+PKG-180000-UserLevel
+系統設定 > 使用者等級 API
+此項目權限依附於 userLevel/base/lists
+新增
 
 項目	內容	說明	驗證	備註
-路徑	company/manage/create			
+路徑	userLevel/base/create			
 方法	POST			
 權限	新增			
 參數				
-p25_cny_name	公司名稱	必填,最長124字元	
-p25_cny_tax_id_number	統一編號	必填,最長124字元	
-p25_cny_principal_name	負責人姓名	必填,最長124字元	
-p25_cny_principal_phone	負責人電話	必填,最長124字元	
-p25_cny_register_address	登記地址	必填,最長124字元	
-p25_cny_business_address	營業地址備註	必填,最長124字元	
-p25_cny_business_memo	營業地址	必填,最長124字元	
-p25_cny_memo	備註	最長124字元
+p18_ull_name	名稱	必填,字串,max:124	
+p18_ull_default	預設	必填,in{y,n}	y.是, n.否
+p18_ull_status	狀態	必填,in{3,-2}	3.啟用, -2.停用
+p18_ull_default: 所有使用者等級裡、最多只有一筆資料的"""p18_ull_default"""欄位為'y',其餘都是'n'
