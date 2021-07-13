@@ -13,7 +13,7 @@
           {{#each form}}
           <el-form-item
             :label="$i18n.global.t(inputForm.{{this.key}}.label)"
-            class="col-12"
+            class="col-lg-6 col-xl-4 px-2"
           >
             \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
           </el-form-item>
