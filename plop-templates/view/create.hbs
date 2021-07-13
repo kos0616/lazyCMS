@@ -18,11 +18,18 @@
             :label="$i18n.global.t(inputForm.{{this.key}}.label)"
             :prop="inputForm.{{this.key}}.id"
             :rules="inputForm.{{this.key}}.rules"
+            {{#if this.spec.memo}}
+            class="col-12 px-2"
+            {{else}}
             class="col-lg-6 col-xl-4 px-2"
+            {{/if}}
           >
             <el-input
               :label="$i18n.global.t(inputForm.{{this.key}}.label)"
               v-model="form[inputForm.{{this.key}}.id]"
+              {{#if this.spec.memo}}
+              type="textarea"
+              {{/if}}
             />
           </el-form-item>
           {{/each}}

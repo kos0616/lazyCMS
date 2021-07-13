@@ -72,7 +72,7 @@ function generateType(form) {
       /** 上方註解 */
       `/** ${f.intro} ${f.memo} ${f.required ? "必填" : "選填"} */`,
       /** 下方 type script */
-      `${f.id}: ${f.type};`,
+      `${f.id}${f.required ? '':'?'}: ${f.type};`,
     ])
     .reduce((cur, nex) => [...cur, ...nex], []);
 }

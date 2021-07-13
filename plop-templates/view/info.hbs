@@ -13,7 +13,11 @@
           {{#each form}}
           <el-form-item
             :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+            {{#if this.spec.memo}}
+            class="col-12 px-2"
+            {{else}}
             class="col-lg-6 col-xl-4 px-2"
+            {{/if}}
           >
             \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
           </el-form-item>
