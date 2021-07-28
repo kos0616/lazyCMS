@@ -6,6 +6,16 @@ export default {
     label: '{{properCase ../ROUTER_FIRST}}.{{this.key}}',
     id: '{{this.id}}',
     searchId: 'search_{{this.id}}',
+    {{#if this.spec.options}}
+    options: [
+    {{#each this.spec.options}}
+      {
+        value: '{{this.key}}',
+        label: '{{this.value}}',
+      },
+    {{/each}}
+    ],
+    {{/if}}
     {{#if this.required}}
     rules: {
       required: true,
