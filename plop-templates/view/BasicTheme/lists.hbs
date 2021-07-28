@@ -80,6 +80,7 @@
           {{#each form}}
           <el-form-item :label="$i18n.global.t(inputForm.{{this.key}}.label)">
             <span>\{{ item[inputForm.{{this.key}}.id] }}</span>
+          </el-form-item>
           {{/each}}
           <el-form-item :label="$i18n.global.t('Util.operate')">
             <router-link
