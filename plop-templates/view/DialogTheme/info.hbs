@@ -7,7 +7,14 @@
     <el-form-item
       :label="$i18n.global.t(inputForm.{{this.key}}.label)"
     >
+    {{#if this.spec.options}}
+      <status
+        :value="form[inputForm.{{this.key}}.id]"
+        :options="inputForm.{{this.key}}.options"
+      />
+      {{else}}
       \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
+      {{/if}}
     </el-form-item>
     {{/each}}
   </el-form>

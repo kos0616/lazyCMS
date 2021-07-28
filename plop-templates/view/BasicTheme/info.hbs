@@ -19,7 +19,14 @@
             class="col-lg-6 col-xl-4 px-2"
             {{/if}}
           >
+            {{#if this.spec.options}}
+            <status
+              :value="form[inputForm.{{this.key}}.id]"
+              :options="inputForm.{{this.key}}.options"
+            />
+            {{else}}
             \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
+            {{/if}}
           </el-form-item>
           {{/each}}
         </div>

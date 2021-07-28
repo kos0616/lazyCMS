@@ -16,10 +16,24 @@
     >
       <el-table-column type="selection" width="40" />
       {{#each form}}
+      {{#if this.spec.options}}
+      <el-table-column
+        :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+        :prop="inputForm.{{this.key}}.id"
+      >
+        <template #default="prop">
+          <status
+            :value="prop.row[inputForm.{{this.key}}.id]"
+            :options="inputForm.{{this.key}}.options"
+          />
+        </template>
+      </el-table-column>
+      {{else}}
       <el-table-column
         :label="$i18n.global.t(inputForm.{{this.key}}.label)"
         :prop="inputForm.{{this.key}}.id"
       />
+      {{/if}}
       {{/each}}
       <el-table-column :label="$i18n.global.t('Util.operate')" width="240">
         <template #default="prop">
@@ -79,7 +93,14 @@
         <el-form>
           {{#each form}}
           <el-form-item :label="$i18n.global.t(inputForm.{{this.key}}.label)">
+          {{#if this.spec.options}}
+            <status
+              :value="item[inputForm.{{this.key}}.id]"
+              :options="inputForm.{{this.key}}.options"
+            />
+          {{else}}
             <span>\{{ item[inputForm.{{this.key}}.id] }}</span>
+          {{/if}}
           </el-form-item>
           {{/each}}
           <el-form-item :label="$i18n.global.t('Util.operate')">
