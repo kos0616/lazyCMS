@@ -1,6 +1,19 @@
-/** input 共用區塊的子片段 */
+/** 
+ * input 共用區塊的子片段
+ * :7 判斷 options 的長度是否為 2 => 轉為 el-switch
+ * :15 判斷 options 是否有長度 => 轉為 el-select
+ * :28 一般狀態 轉為 el-input
+ */
 module.exports = 
-`{{#if this.spec.options.length}}
+`{{#isSwitch this.spec.options}}
+<el-switch
+  v-model="form[inputForm.{{this.key}}.id]"
+  :active-value="inputForm.{{this.key}}.options[0].value"
+  :inactive-value="inputForm.{{this.key}}.options[1].value"
+  inactive-color="#ff4949"
+  active-color="#13ce66"
+/>
+{{else if this.spec.options.length}}
 <el-select
   v-model="form[inputForm.{{this.key}}.id]"
   :placeholder="$i18n.global.t(inputForm.{{this.key}}.label)"
@@ -20,5 +33,5 @@ module.exports =
   type="textarea"
   {{/if}}
 />
-{{/if}}
+{{/isSwitch}}
 `;

@@ -24,13 +24,7 @@
             class="col-lg-6 col-xl-4 px-2"
             {{/if}}
           >
-            <el-input
-              :label="$i18n.global.t(inputForm.{{this.key}}.label)"
-              v-model="form[inputForm.{{this.key}}.id]"
-              {{#if this.spec.memo}}
-              type="textarea"
-              {{/if}}
-            />
+            {{> inputPartial}}
           </el-form-item>
           {{/each}}
         </div>

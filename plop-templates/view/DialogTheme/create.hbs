@@ -12,13 +12,7 @@
       :prop="inputForm.{{this.key}}.id"
       :rules="inputForm.{{this.key}}.rules"
     >
-      <el-input
-        :label="$i18n.global.t(inputForm.{{this.key}}.label)"
-        v-model="form[inputForm.{{this.key}}.id]"
-        {{#if this.spec.memo}}
-        type="textarea"
-        {{/if}}
-      />
+      {{> inputPartial}}
     </el-form-item>
     {{/each}}
     <hr />

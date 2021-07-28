@@ -30,7 +30,16 @@ const FOLDER = {
   },
 };
 
+const inputBlock =  require('./plop-templates/view/inputBlock')
+
 module.exports = function (plop) {
+  /** 判定是否可用 el-switch */
+  plop.setHelper('isSwitch',function (arr, opts) {
+    return (Array.isArray(arr) && arr.length === 2) ? opts.fn(this) : opts.inverse(this)
+  })
+
+  plop.setPartial('inputPartial', inputBlock)
+
   plop.setGenerator("FOLDER", FOLDER);
 };
 
