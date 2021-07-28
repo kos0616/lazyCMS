@@ -2,7 +2,7 @@
 const inputs = require("./lib/fileReader");
 const API = inputs.API.trim();
 const form = inputs.settedForm;
-const key = inputs.key;
+const { key, NODE } = inputs;
 const folder = API.split("/")[1]; /* 過濾出 folder 的路徑 */
 
 /** 整理問題 */
@@ -23,9 +23,9 @@ const FOLDER = {
     if (data.confirm === false)
       throw new Error("使用者確認欄位錯誤，中斷操作!");
 
-    const res = { API, ...data, folder, key, form };
+    const res = { API, ...data, folder, key, form, NODE };
 
-    const actions = [...Service(res),...Core(res), ...setTheme(res)];
+    const actions = [...Service(res),...Core(res), ...setTheme(data.themeType, res)];
     return actions;
   },
 };
@@ -39,7 +39,7 @@ module.exports = function (plop) {
  * @param {'Basic' | 'Dialog'} themeType 外觀樣式的類型
  * @returns 
  */
-function setTheme(themeType) {
+function setTheme(themeType, res) {
   let Theme = [];
 
   if(themeType === 'Dialog') {
