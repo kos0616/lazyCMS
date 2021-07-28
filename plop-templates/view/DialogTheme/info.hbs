@@ -1,0 +1,79 @@
+<template>
+  <el-form
+    v-loading="$store.state.loading.isShow"
+    label-position="top"
+    class="detail-wrap"
+  >
+    <div class="detail" style="width: 100%">
+      <div class="card mb-3">
+        <div class="card-header">
+          \{{ $i18n.global.t('Util.info') }}
+        </div>
+        <div class="card-body d-lg-flex flex-wrap">
+          {{#each form}}
+          <el-form-item
+            :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+            {{#if this.spec.memo}}
+            class="col-12 px-2"
+            {{else}}
+            class="col-lg-6 col-xl-4 px-2"
+            {{/if}}
+          >
+            \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
+          </el-form-item>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </el-form>
+</template>
+
+<script lang='ts'>
+import { reactive, toRefs, onMounted } from 'vue';
+import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
+import Info from './Service/Info';
+import inputForm from './form';
+import { useRoute, useRouter } from 'vue-router';
+
+export default {
+  name: '{{dashCase BASE_NAME}}--Info',
+  setup() {
+    const { proxy } = utilTools();
+    const $route = useRoute();
+    const $router = useRouter();
+
+    const data = reactive({
+      form: {},
+    });
+
+    /**
+     * getInfo 取得資料
+     */
+    const getInfo = async (): Promise<void> => {
+      const { {{key}} } = $route.params;
+      if (!{{key}}) return;
+      const getter = await Info({
+        {{key}}: Number({{key}}),
+      });
+      data.form = getter;
+    };
+
+    onMounted(() => {
+      /** 從bus偵測刪除行為(複選) */
+      proxy.$bus.$on('modify', () => {
+        $router.push(
+          `/{{BASE}}/modify/${$route.params.{{~key~}} }`,
+        );
+      });
+      getInfo();
+    });
+
+    const refData = toRefs(data);
+
+    return {
+      ...refData,
+      inputForm,
+    };
+  },
+};
+</script>
