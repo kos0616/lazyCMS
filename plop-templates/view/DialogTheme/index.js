@@ -28,7 +28,7 @@ module.exports = (D) => {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
       path: `dist/_router.ts`, //文件创建路径
-      templateFile: "plop-templates/view/Basic/_router.hbs", //文件模板
+      templateFile: "plop-templates/view/DialogTheme/_router.hbs", //文件模板
       data: {
         ...D,
         ROUTER_FIRST,
@@ -39,28 +39,28 @@ module.exports = (D) => {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
       path: `dist/${D.folder}/create.vue`, //文件创建路径
-      templateFile: "plop-templates/view/Basic/create.hbs", //文件模板
+      templateFile: "plop-templates/view/DialogTheme/create.hbs", //文件模板
       data,
     },
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
       path: `dist/${D.folder}/info.vue`, //文件创建路径
-      templateFile: "plop-templates/view/Basic/info.hbs", //文件模板
+      templateFile: "plop-templates/view/DialogTheme/info.hbs", //文件模板
       data,
     },
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
       path: `dist/${D.folder}/lists.vue`, //文件创建路径
-      templateFile: "plop-templates/view/Basic/lists.hbs", //文件模板
+      templateFile: "plop-templates/view/DialogTheme/lists.hbs", //文件模板
       data,
     },
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
       path: `dist/${D.folder}/modify.vue`, //文件创建路径
-      templateFile: "plop-templates/view/Basic/modify.hbs", //文件模板
+      templateFile: "plop-templates/view/DialogTheme/modify.hbs", //文件模板
       data,
     },
   ];
