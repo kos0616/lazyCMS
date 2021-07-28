@@ -12,12 +12,14 @@ module.exports = (D) => {
 
   const ARR = BASE.split("/");
   const ROUTER_FIRST = ARR[0];
+  const ROUTER_LAST = ARR[1];
 
   const data = {
     ...D,
     BASE_NAME,
     BASE,
     ROUTER_FIRST,
+    ROUTER_LAST,
   };
 
   /* ROUTER NEED: account/manage/lists, module_account-name, cutted path, key */
