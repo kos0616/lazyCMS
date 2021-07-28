@@ -8,7 +8,7 @@ const API = '{{BASE_API}}/create';
 export namespace typeCreate {
   export type request = {
     {{#each types}}
-    {{this}}
+    {{{this}}}
     {{/each}}
   };
 }
