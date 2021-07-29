@@ -21,8 +21,7 @@
 </template>
 
 <script lang='ts'>
-import { reactive, toRefs, onMounted } from 'vue';
-import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
+import { reactive, toRefs, onMounted, watch } from 'vue';
 import Info from './Service/Info';
 import inputForm from './form';
 
@@ -31,7 +30,7 @@ export default {
   props: {
     id: { type: Number, required: true },
   },
-  setup(prop, { emit }) {
+  setup(prop) {
     const data = reactive({
       form: {} as any,
     });

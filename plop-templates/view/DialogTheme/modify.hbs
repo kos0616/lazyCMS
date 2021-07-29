@@ -34,11 +34,10 @@
 </template>
 
 <script lang='ts'>
-import { reactive, toRefs, onMounted } from 'vue';
+import { reactive, toRefs, onMounted, watch } from 'vue';
 import Modify from './Service/Modify';
 import inputForm from './form';
-import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
-import DoModify, { typeDoModify } from './Service/DoModify';
+import DoModify from './Service/DoModify';
 import ELFORM from '@/modules/FPKG-20000-Util/API/elForm/index';
 
 export default {

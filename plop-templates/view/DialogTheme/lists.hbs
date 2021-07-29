@@ -196,7 +196,7 @@ import info from './info.vue';
 
 export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Lists',
-  components: { advSearch },
+  components: { advSearch, create, modify, info },
   setup() {
     const data = reactive({
       tableData: [] as typeLists.item[],
