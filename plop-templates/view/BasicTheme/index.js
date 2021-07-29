@@ -1,9 +1,15 @@
-/* {{key: string,
+/*
+  form: 
+  {{key: string,
   type: string,
   required: boolean,
   id: string,
   intro: string,
-  memo: string}[]} */
+  memo: string,
+  spec: {
+    memo: boolean,
+    options: {value:string, label:string}
+  }}[]} */
 
 /** 建立 router 與 *vue 檔 */
 module.exports = (D) => {

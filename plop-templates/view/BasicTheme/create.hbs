@@ -48,7 +48,13 @@ export default defineComponent({
     const { REF_FORM, reset, submitForm } = ELFORM();
     const router = useRouter();
     const data = reactive({
-      form: {} as typeCreate.request,
+      form: {
+        {{#each form}}
+        {{#isSwitch this.spec.options}}
+        {{this.id}}: '{{this.spec.options.0.key}}',
+        {{/isSwitch}}
+        {{/each}}
+      } as typeCreate.request,
       keepCreate: false,
     });
 

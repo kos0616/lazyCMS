@@ -56,11 +56,15 @@ import inputForm from './form';
 export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Create',
   setup(prop, { emit }) {
-    const { proxy } = utilTools();
     const { REF_FORM, reset, submitForm } = ELFORM();
-    const router = useRouter();
     const data = reactive({
-      form: {} as typeCreate.request,
+      form: {
+        {{#each form}}
+        {{#isSwitch this.spec.options}}
+        {{this.id}}: '{{this.spec.options.0.key}}',
+        {{/isSwitch}}
+        {{/each}}
+      } as typeCreate.request,
       keepCreate: false,
     });
 
