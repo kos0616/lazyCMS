@@ -1,6 +1,8 @@
 <template>
   <el-form @submit.prevent="advSearch" @reset.prevent="resetForm" :model="form">
     {{#each form}}
+    {{#if this.spec.memo}}
+    {{else}}
     <el-form-item
       :label="$i18n.global.t(inputForm.{{this.key}}.label)"
       :prop="inputForm.{{this.key}}.searchId"
@@ -10,6 +12,7 @@
         v-model="form[inputForm.{{this.key}}.searchId]"
       />
     </el-form-item>
+    {{/if}}
     {{/each}}
     <hr />
     <div>
