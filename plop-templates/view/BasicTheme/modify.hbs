@@ -46,7 +46,7 @@ import { useRoute, useRouter } from 'vue-router';
 export default {
   name: '{{dashCase BASE_NAME}}--Modify',
   setup() {
-    const { proxy } = utilTools();
+    const { proxy, backToList } = utilTools();
     const $route = useRoute();
     const $router = useRouter();
     const { REF_FORM, submitForm } = ELFORM();
@@ -67,8 +67,8 @@ export default {
     /** 送出表單 */
     const handleSubmitForm = async () => {
       await submitForm();
-      const getter = await DoModify(data.form);
-      if (getter) getInfo();
+      await DoModify(data.form);
+      backToList();
     };
 
     onMounted(() => {
