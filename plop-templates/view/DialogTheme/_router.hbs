@@ -3,7 +3,7 @@
     path: '{{ROUTER_LAST}}/lists',
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-lists',
     component: () =>
-      import(/* webpackChunkName: "MODULE_{{ROUTER_FIRST}}" */ './{{folder}}/lists.vue'),
+      import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/lists.vue'),
     meta: {
       title: '{{NODE}}',
       url: '{{API}}',
