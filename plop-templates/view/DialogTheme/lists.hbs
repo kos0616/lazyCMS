@@ -189,7 +189,7 @@ import Lists, { typeLists } from './Service/Lists';
 import Delete from './Service/Delete';
 import advSearch from './advSearch.vue';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import create from './create.vue';
 import modify from './modify.vue';
 import info from './info.vue';
@@ -208,7 +208,6 @@ export default defineComponent({
       activeKey: null as number | null,
     });
     const $route = useRoute();
-    const $router = useRouter();
     const { screenWidth, proxy, CRUD } = utilTools();
 
     // table選擇的項目
