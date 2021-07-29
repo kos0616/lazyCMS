@@ -23,7 +23,7 @@
         type="success"
       >
         <icon icon="fas fa-save"></icon>
-        \{{ $i18n.global.t("Theme.saveAndReturn") }}
+        \{{ $i18n.global.t('Theme.saveAndReturn') }}
       </el-button>
       <el-button
         :title="$i18n.global.t('Theme.keepCreate')"
@@ -31,7 +31,7 @@
         native-type="submit"
       >
         <icon icon="fas fa-plus"></icon>
-        \{{ $i18n.global.t("Theme.keepCreate") }}
+        \{{ $i18n.global.t('Theme.keepCreate') }}
       </el-button>
       <el-button
         @click="$emit('close')"
@@ -39,7 +39,7 @@
         class="border-0"
       >
         <icon icon="fas fa-times"></icon>
-        \{{ $i18n.global.t("Theme.cancel") }}
+        \{{ $i18n.global.t('Theme.cancel') }}
       </el-button>
     </div>
   </el-form>
@@ -74,10 +74,10 @@ export default defineComponent({
       const getter = await Create(data.form);
       if (getter) {
         if (!data.keepCreate) {
-          emit("close");
+          emit('close');
         }
         resetForm();
-        emit("update");
+        emit('update');
         data.keepCreate = false;
       }
     };

@@ -42,7 +42,7 @@ export default {
       data.form = {};
       const {{key}} = prop.id;
       if (!{{key}}) return;
-      const getter = await Info({ {{~key~}} });
+      const getter = await Info({ {{key}} });
       data.form = getter;
     };
 
@@ -50,7 +50,9 @@ export default {
       getInfo();
     });
 
-    watch(()=> prop.id, () => {
+    watch(
+      ()=> prop.id,
+      () => {
       getInfo();
     });
 
