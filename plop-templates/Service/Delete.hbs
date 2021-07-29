@@ -11,7 +11,7 @@ const nothingDelete = { message: 'Got nothing to delete' };
 
 namespace typeDelete {
   export type request = {
-    {{key}}: number[];
+    {{key}}s: number[];
   };
 }
 
@@ -24,7 +24,7 @@ export default async (input: input) => {
   }
   return confirm(input).then(async () => {
     const guids = getGuid(input);
-    const params: typeDelete.request = { {{key}}: guids };
+    const params: typeDelete.request = { {{key}}s: guids };
     return $http
       .delete(API, { params })
       .then(d => {
