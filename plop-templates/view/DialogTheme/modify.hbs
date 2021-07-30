@@ -34,13 +34,13 @@
 </template>
 
 <script lang='ts'>
-import { reactive, toRefs, onMounted, watch } from 'vue';
+import { reactive, toRefs, onMounted, watch, defineComponent } from 'vue';
 import Modify from './Service/Modify';
 import inputForm from './form';
 import DoModify from './Service/DoModify';
 import ELFORM from '@/modules/FPKG-20000-Util/API/elForm/index';
 
-export default {
+export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Modify',
   props: {
     id: { type: Number, required: true },
@@ -89,5 +89,5 @@ export default {
       inputForm,
     };
   },
-};
+});
 </script>

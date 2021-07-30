@@ -35,7 +35,7 @@
 </template>
 
 <script lang='ts'>
-import { reactive, toRefs, onMounted } from 'vue';
+import { reactive, toRefs, onMounted, defineComponent } from 'vue';
 import Modify from './Service/Modify';
 import inputForm from './form';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
@@ -43,7 +43,7 @@ import DoModify, { typeDoModify } from './Service/DoModify';
 import ELFORM from '@/modules/FPKG-20000-Util/API/elForm/index';
 import { useRoute, useRouter } from 'vue-router';
 
-export default {
+export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Modify',
   setup() {
     const { proxy, backToList } = utilTools();
@@ -91,6 +91,6 @@ export default {
       handleSubmitForm,
       inputForm,
     };
-  },
+  }),
 };
 </script>
