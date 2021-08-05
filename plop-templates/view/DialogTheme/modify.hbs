@@ -59,7 +59,7 @@ export default defineComponent({
       const {{key}} = prop.id;
       if (!{{key}}) return;
       const getter = await Modify({ {{key}} });
-      data.form = getter;
+      if (getter) data.form = getter;
     };
 
     /** 送出表單 */

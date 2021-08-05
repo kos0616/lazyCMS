@@ -62,7 +62,7 @@ export default defineComponent({
       const getter = await Info({
         {{key}}: Number({{key}}),
       });
-      data.form = getter;
+      if (getter) data.form = getter;
     };
 
     onMounted(() => {

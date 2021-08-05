@@ -43,7 +43,7 @@ export default defineComponent({
       const {{key}} = prop.id;
       if (!{{key}}) return;
       const getter = await Info({ {{key}} });
-      data.form = getter;
+      if (getter) data.form = getter;
     };
 
     onMounted(() => {

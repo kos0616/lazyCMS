@@ -61,7 +61,7 @@ export default defineComponent({
       const { {{key}} } = $route.params;
       if (!{{key}}) return;
       const getter = await Modify({ {{~key~}} });
-      data.form = getter;
+      if (getter) data.form = getter;
     };
 
     /** 送出表單 */
@@ -91,6 +91,6 @@ export default defineComponent({
       handleSubmitForm,
       inputForm,
     };
-  }),
-};
+  },
+});
 </script>
