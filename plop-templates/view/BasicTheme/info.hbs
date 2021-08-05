@@ -36,13 +36,13 @@
 </template>
 
 <script lang='ts'>
-import { reactive, toRefs, onMounted } from 'vue';
+import { reactive, toRefs, onMounted, defineComponent } from 'vue';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
 import Info from './Service/Info';
 import inputForm from './form';
 import { useRoute, useRouter } from 'vue-router';
 
-export default {
+export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Info',
   setup() {
     const { proxy } = utilTools();
@@ -82,5 +82,5 @@ export default {
       inputForm,
     };
   },
-};
+});
 </script>

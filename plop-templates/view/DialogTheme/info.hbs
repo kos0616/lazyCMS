@@ -21,11 +21,11 @@
 </template>
 
 <script lang='ts'>
-import { reactive, toRefs, onMounted, watch } from 'vue';
+import { reactive, toRefs, onMounted, watch, defineComponent } from 'vue';
 import Info from './Service/Info';
 import inputForm from './form';
 
-export default {
+export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Info',
   props: {
     id: { type: Number, required: true },
@@ -63,5 +63,5 @@ export default {
       inputForm,
     };
   },
-};
+});
 </script>
