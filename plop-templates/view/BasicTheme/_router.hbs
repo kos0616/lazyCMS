@@ -24,6 +24,7 @@
   {
     path: '{{ROUTER_LAST}}/info/:{{key}}',
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-info',
+    props: true,
     component: () =>
       import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/info.vue'),
     meta: {
@@ -35,6 +36,7 @@
   {
     path: '{{ROUTER_LAST}}/modify/:{{key}}',
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-modify',
+    props: true,
     component: () =>
       import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/modify.vue'),
     meta: {

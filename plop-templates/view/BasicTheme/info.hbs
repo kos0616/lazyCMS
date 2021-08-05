@@ -40,13 +40,13 @@ import { reactive, toRefs, onMounted, defineComponent } from 'vue';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
 import Info from './Service/Info';
 import inputForm from './form';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Info',
-  setup() {
+  props: ['{{key}}'],
+  setup(props) {
     const { proxy } = utilTools();
-    const $route = useRoute();
     const $router = useRouter();
 
     const data = reactive({
@@ -57,7 +57,7 @@ export default defineComponent({
      * getInfo 取得資料
      */
     const getInfo = async (): Promise<void> => {
-      const { {{key}} } = $route.params;
+      const { {{key}} } = props;
       if (!{{key}}) return;
       const getter = await Info({
         {{key}}: Number({{key}}),
@@ -69,7 +69,7 @@ export default defineComponent({
       /** 從bus偵測刪除行為(複選) */
       proxy.$bus.$on('modify', () => {
         $router.push(
-          `/{{BASE}}/modify/${$route.params.{{~key~}} }`,
+          `/{{BASE}}/modify/${props.{{~key~}} }`,
         );
       });
       getInfo();

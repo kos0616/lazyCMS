@@ -41,13 +41,13 @@ import inputForm from './form';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
 import DoModify, { typeDoModify } from './Service/DoModify';
 import ELFORM from '@/modules/FPKG-20000-Util/API/elForm/index';
-import { useRoute, useRouter } from 'vue-router';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Modify',
-  setup() {
+  props: ['{{key}}'],
+  setup(props) {
     const { proxy, backToList } = utilTools();
-    const $route = useRoute();
     const $router = useRouter();
     const { REF_FORM, submitForm } = ELFORM();
     const data = reactive({
@@ -58,7 +58,7 @@ export default defineComponent({
      * getInfo 取得資料
      */
     const getInfo = async () => {
-      const { {{key}} } = $route.params;
+      const { {{key}} } = props;
       if (!{{key}}) return;
       const getter = await Modify({ {{~key~}} });
       if (getter) data.form = getter;
@@ -74,7 +74,7 @@ export default defineComponent({
     onMounted(() => {
       proxy.$bus.$on('info', () => {
         $router.push(
-          `/{{BASE}}/info/${$route.params.{{~key~}} }`,
+          `/{{BASE}}/info/${props.{{~key~}} }`,
         );
       });
       proxy.$bus.$on('save', () => {
