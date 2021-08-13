@@ -74,22 +74,25 @@ function generateType(form) {
       /** 上方註解 */
       `/** ${f.intro} ${f.memo} ${f.required ? "必填" : "選填"} */`,
       /** 下方 type script */
-      `${f.id}${f.required ? '':'?'}: ${getOpt(f.spec.options) || f.type};`,
+      `${f.id}${f.required ? "" : "?"}: ${getOpt(f.spec.options) || f.type}${
+        f.spec.isArray ? "[]" : ""
+      };`,
     ])
     .reduce((cur, nex) => [...cur, ...nex], []);
 }
 /**
  * 取得選項
- * @param {{key:string,value:string}[]} opt 
+ * @param {{key:string,value:string}[]} opt
  */
 function getOpt(opt) {
-  if(Array.isArray(opt) && opt.length) {
-    const keys = opt.map(o => o.key);
+  if (Array.isArray(opt) && opt.length) {
+    const keys = opt.map((o) => o.key);
     /** 檢查是否為 status '3' | '-2' 的情況 */
-    const isStatus = keys.length === 2 && keys.includes('3') && keys.includes('-2');
-    if(isStatus) return 'status';
+    const isStatus =
+      keys.length === 2 && keys.includes("3") && keys.includes("-2");
+    if (isStatus) return "status";
 
     /** 其餘狀況，印出 options */
-    return keys.map(s=> `'${s}'`).join(' | ');
+    return keys.map((s) => `'${s}'`).join(" | ");
   }
 }

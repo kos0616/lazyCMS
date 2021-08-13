@@ -1,159 +1,17 @@
-NODE_123
-p25_cny_id
-PKG-180000-UserLevel
+NODE_48
+p28_ywmr_id
+PKG-280000-YrWarehouse
 系統設定 > 使用者等級 API
-此項目權限依附於 userLevel/base/lists
+此項目權限依附於 yrWarehouse/member/lists
 新增
 
 項目	內容	說明	驗證	備註
-路徑	userLevel/base/create			
+路徑	yrWarehouse/member/create			
 方法	POST			
 權限	新增			
 參數				
-p26_pon_no	編號	required;string	
-p26_pon_p26_tpe_id	類型ID	required;integer	
-p26_pon_p9_hmr_id	建立人ID	required;integer	
-p26_pon_status	狀態	required;string	
-p26_pon_transfer_status	轉移狀態	required;string	
-p26_pon_transfer_memo	移轉備註	required;string	
-p26_cer_no	客戶 編號	required;string	
-p26_cer_name	客戶 名稱	required;string	
-p26_cny_industry	公司 行業別; From ERP	required;string	
-p26_cny_industry_sub	公司 行業別 sub; From ERP	required;string	
-p26_cny_phone	公司 電話	required;string	
-p26_cny_fax	公司 傳真	nullable;string	
-p26_cny_mail	公司 MAIL	nullable;string	
-p26_cny_line_id	公司 LINE ID	nullable;string	
-p26_cny_contact_phone	公司 聯絡人電話	required;string	
-p26_cny_contact_mail	公司 聯絡人MAIL	nullable;string	
-p26_cny_contact_line_id	公司 聯絡人LINE ID	nullable;string	
-p26_cny_tax_id	公司 統一編號	required;string	
-p26_cny_accounting_contact	公司 會計聯絡人	required;string	
-p26_cct_class	合約 公司別; From ERP	required;string	
-p26_cct_property	合約 屬性; From ERP	nullable;string	
-p26_cct_type	合約 種類; From ERP	required;string	
-p26_cct_receivable_condition	合約 收款條件; From ERP	required;string	
-p26_cct_p6_dnt_id_processing	合約 處理部門ID	required;string	
-p26_cct_receivable_date	合約 收款日	required;date_format:Y-m-d	
-p26_cct_settle_account_date	合約 結帳日	required;date_format:Y-m-d	
-p26_cct_sign_up_start	合約 簽約起	required;date_format:Y-m-d	
-p26_cct_sign_up_end	合約 簽約訖	required;date_format:Y-m-d	
-p26_cct_unfold_start	合約 展開起訖	nullable;date_format:Y-m-d	
-p26_cct_unfold_end	合約 展開起訖	nullable;date_format:Y-m-d	
-p26_ccn_change_start_date	合約條件 異動開始日	nullable;date_format:Y-m-d	
-p26_ccn_scheduled_delivery_date	合約條件 預定交機日	required;date_format:Y-m-d	
-p26_ccn_machine_retracted_date	合約條件 機器收回日	nullable;date_format:Y-m-d	
-p26_ccn_p9_hmr_id_signatory	合約條件 簽約人ID p9_hmr_id	required;integer	
-p26_ccn_security_deposit	合約條件 保證金	required;integer	
-p26_ccn_monthly_fee	合約條件 月租費	nullable;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccn_monthly_fee_collection_method	合約條件 月租費收款方式	nullable;string	
-p26_ccn_rental_company_rent	合約條件 租賃公司租金	nullable;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccn_project_fee	合約條件 專案費	nullable;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccn_warranty_fee	合約條件 保固費	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccn_maintenance_fee	合約條件 保養費	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccn_stopwatch_record	合約條件 碼錶紀錄	nullable;string	
-p26_ccn_valuation_method	合約條件 計價方式	nullable;string	
-p26_cce_monthly_rental_month	合約週期 月租週期(月)	required;string	
-p26_cce_monthly_rental_day	合約週期 月租週期(日)	required;string	
-p26_cce_project_month	合約週期 專案週期(月)	nullable;string	
-p26_cce_project_day	合約週期 專案週期(日)	nullable;string	
-p26_cce_warranty_fee_month	合約週期 保固金週期(月)	nullable;string	
-p26_cce_warranty_fee_day	合約週期 保固金週期(日)	nullable;string	
-p26_cce_oversize_month	合約週期 超張週期(月)	required;string	
-p26_cce_oversize_day	合約週期 超張週期(日)	required;string	
-p26_cce_maintenance_month	合約週期 保養日(月)	required;string	
-p26_cce_maintenance_day	合約週期 保養日(日)	required;string	
-p26_cdt_contract_collect_status	合約文件 合約書取得狀態	required;string	
-p26_cdt_agreement_collect_status	合約文件 合約議定書	nullable;string	
-p26_cdt_second_certificate	合約文件 第二證件	nullable;string	
-p26_cdt_security_deposit_collect_status	合約文件 保證金	nullable;string	
-p26_cdt_need_logistics_retrieved	合約文件 需物流取回	required;string	
-p26_ccm_any_quantity	計張條件(單色) 不分尺寸 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccm_any_error_rate	計張條件(單色) 不分尺寸 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccm_any_unit_price	計張條件(單色) 不分尺寸 單價	required;string	
-p26_ccm_a4_quantity	計張條件(單色) a4 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccm_a4_error_rate	計張條件(單色) a4 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccm_a4_unit_price	計張條件(單色) a4 單價	required;string	
-p26_ccm_a3_quantity	計張條件(單色) a3 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccm_a3_error_rate	計張條件(單色) a3 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccm_a3_unit_price	計張條件(單色) a3 單價	required;string	
-p26_ccm_b5_quantity	計張條件(單色) b5 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccm_b5_error_rate	計張條件(單色) b5 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccm_b5_unit_price	計張條件(單色) b5 單價	required;string	
-p26_ccm_b4_quantity	計張條件(單色) b4 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccm_b4_error_rate	計張條件(單色) b4 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccm_b4_unit_price	計張條件(單色) b4 單價	required;string	
-p26_ccc_any_quantity	計張條件(彩色) 不分尺寸 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccc_any_error_rate	計張條件(彩色) 不分尺寸 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccc_any_unit_price	計張條件(彩色) 不分尺寸 單價	required;string	
-p26_ccc_a4_quantity	計張條件(彩色) a4 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccc_a4_error_rate	計張條件(彩色) a4 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccc_a4_unit_price	計張條件(彩色) a4 單價	required;string	
-p26_ccc_a3_quantity	計張條件(彩色) a3 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccc_a3_error_rate	計張條件(彩色) a3 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccc_a3_unit_price	計張條件(彩色) a3 單價	required;string	
-p26_ccc_b5_quantity	計張條件(彩色) b5 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccc_b5_error_rate	計張條件(彩色) b5 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccc_b5_unit_price	計張條件(彩色) b5 單價	required;string	
-p26_ccc_b4_quantity	計張條件(彩色) b4 基本張數	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_ccc_b4_error_rate	計張條件(彩色) b4 誤印率(%)	required;numeric;between:0,99999999999999999999;regex:/-?\d*(.\d{1,2})?$/	
-p26_ccc_b4_unit_price	計張條件(彩色) b4 單價	required;string	
-p26_ice_type	發票 發票聯式	required;string	
-p26_ice_title	發票 發票抬頭	required;string	
-p26_ice_send_address	發票 發票寄送地址	required;string	
-p26_ice_account_method	發票 帳單方式	required;string	
-p26_ire_original_processing_type	發票重開 原發票處理類型	nullable;string	
-p26_ire_original_processing_reason	發票重開 原發票處理原因	nullable;string	
-p26_adt_original_processing_type	金額折讓 原發票處理類型	nullable;string	
-p26_adt_original_processing_reason	金額折讓 原發票處理原因	nullable;string	
-p26_scy_introducer	銷售分類 介紹人; From ERP	required;string	
-p26_scy_category_1	銷售分類 銷售分類 1; From ERP	required_without:p26_scy_category_2;string	
-p26_scy_category_2	銷售分類 銷售分類 2; From ERP	required_without:p26_scy_category_1;string	
-p26_ime_contact	裝機 聯絡人	required;string	
-p26_ime_contact_phone	裝機 聯絡電話	required;string	
-p26_ime_address	裝機 聯絡人	required;string	
-p26_ime_floor_move	裝機 樓層搬移	nullable;string	
-p26_ime_logistics_demand	裝機 物流需求	required;string	
-p26_ime_manpower_demand	裝機 人力需求	nullable;string	
-p26_ime_logistics_remark	裝機 物流備註	nullable;string	
-p26_ime_collect_rent_cost	裝機 代收租金	nullable;string	
-p26_ime_collect_security_deposit	裝機 代收押金	nullable;string	
-p26_ime_collect_payment	裝機 代收貨款	nullable;string	
-p26_ime_use_line_length	裝機 USB線(公尺)	nullable;string	
-p26_ime_network_line_length	裝機 網路線(公尺)	nullable;string	
-p26_ime_phone_line_length	裝機 電話線(公尺)	nullable;string	
-p26_ime_computer_count_on_site	裝機 現場電腦數	nullable;string	
-p26_min_change_reason	維護 異動原因	nullable;string	
-p26_min_charge_items	維護 收費項目 (多選); array to json	nullable;string	
-p26_min_selling_price	維護 賣價	nullable;integer	
-p26_min_p9_hmr_id_repair_man	維護 維修人ID p9_hmr_id	required;integer	
-p26_min_p9_hmr_id_maintainer	維護 保養人ID p9_hmr_id	required;integer	
-p26_min_failure_description	維護 故障說明	nullable;string	
-p26_commodity	商品資料	required;array;min:1	
-p26_commodity.*.p26_cty_item_no	商品資料 品號; From ERP	required;string	
-p26_commodity.*.p26_cty_item_name	商品資料 品名; From ERP	required;string	
-p26_commodity.*.p26_cty_machine_no	商品資料 機號; From ERP	required;string	
-p26_commodity.*.p26_cty_group	商品資料 群組	nullable;string	
-p26_commodity.*.p26_cty_quantity	商品資料 數量	nullable;numeric;between:0.0001,99999999999999999999;regex:/-?\d*(.\d{1,4})?$/	
-p26_commodity.*.p26_cty_warehouse	商品資料 倉別	nullable;string	
-p26_commodity.*.p26_cty_delivery_cycle	商品資料 派送週期	nullable;string	
-p26_commodity.*.p26_cty_source	商品資料 來源	nullable;string	
-p26_commodity.*.p26_cty_category	商品資料 類別	nullable;string	
-p26_commodity.*.p26_cty_placement	商品資料 放置地; From ERP	nullable;string	
-p26_fat_no	帳款資料 帳款編號; From ERP	nullable;string	
-p26_fat_bill_date	帳款資料 單據日期; From ERP	nullable;date_format:Y-m-d	
-p26_fat_bill_amount	帳款資料 單據金額; From ERP	nullable;string	
-p26_fat_invoice_date	帳款資料 發票日期; From ERP	nullable;date_format:Y-m-d	
-p26_fat_invoice_no	帳款資料 發票號碼; From ERP	nullable;string	
-p26_fat_open_unit	帳款資料 開立單位; From ERP	nullable;string	
-p26_fat_discount_amount	帳款資料 折讓金額(未稅)	nullable;string	
-p26_fat_discount_tax	帳款資料 折讓稅額	nullable;string	
-p26_ron_origin_phone	移機 原聯絡電話	nullable;string	
-p26_ron_origin_address	移機 原地址	nullable;string	
-p26_ron_p9_hmr_id_repair_man	移機 新維修人員ID p9_hmr_id	nullable;integer	
-p26_ron_p9_hmr_id_maintainer	移機 新保養人員ID p9_hmr_id	nullable;integer	
-p26_ron_p9_hmr_id_accountant	移機 新會計人員ID p9_hmr_id	nullable;integer	
-p26_rrt_deposit_refund_method	退租 押金退還方式	nullable;string	
-p26_tal_reason	試用 原因	nullable;string	
-p26_tal_estimated_loan_date	試用 預計借出日	nullable;date_format:Y-m-d	
-p26_tal_estimated_return_date	試用 預計歸還日	nullable;date_format:Y-m-d
+p28_ywmr_name	倉別	必填,最長32字元	
+p28_ywmr_code	倉庫代碼	必填,最長8字元	
+p9_hmr_ids	人事資料IDs	必填,整數陣列	
+p9_hmr_ids[]	人事資料ID	必填,整數	
+p9_hmr_names[]	人事資料名稱	必填,字元	
