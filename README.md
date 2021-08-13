@@ -16,9 +16,11 @@ Run
 
 1. 打開 MD.txt
 2. 貼上文件中的 Create ，須包含 "此項目權限依附--- /lists" 及 表格內容
-3. 在最上方**手動輸入**主要 `id` ，格式是 `pxx_xx_id` (即 info 與 modify 的 `request id`)，因為 Create 文件裡沒有 `id`
-4. **手動輸入** `NODE_xx` 作為 `router` 的 `i18n path key`
-5. 表格內的 **第一筆 ID** 會自動成為刪除時 **顯示的名稱** ex: 你確定要刪除 `{{ form.p3_ape_name }}` 嗎?
+3. 在最上方**手動輸入**主要 `KEY` ，格式是 `pxx_xx_id` (即 info 與 modify 的 `request id`)，因為 Create 文件裡沒有 `KEY`
+4. **手動輸入** `NODE_xx` 作為 `router` 的 `i18n path`
+5. 表格內的 **第一筆 KEY** 會自動成為刪除時 **顯示的名稱** ex: 你確定要刪除 `{{ form.p3_ape_name }}` 嗎?
+6. 選項會自動轉為 `<el-select>` ，若為 `'3', '-2' | 'y' , 'n'` 會自動換成 `<el-switch>`
+7. 單維陣列類型 `ex: Array<string | number>` 會自動判斷
 
 ## 輸出
 
@@ -28,4 +30,4 @@ Run
 
 ## 未來功能
 
-1. Select options in typescript form and vue
+1. Object array
