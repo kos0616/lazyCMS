@@ -11,7 +11,7 @@ export default {
     {{#each this.spec.options}}
       {
         value: '{{this.key}}',
-        label: '{{this.value}}',
+        label: '{{properCase ../../ROUTER_FIRST}}.{{../../ROUTER_LAST}}.{{../key}}_{{@index}}',
       },
     {{/each}}
     ],
