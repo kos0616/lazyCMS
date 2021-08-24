@@ -10,7 +10,7 @@ export namespace typeLists {
     search_complex?: string;
   };
 
-  export type response = { list: item[] };
+  export type response = pageinator & { list: item[] };
 
   export type item = {
     {{key}}: number
