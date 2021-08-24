@@ -8,6 +8,9 @@ export namespace typeLists {
   export type request = pageinator & {
     /** 複合搜尋 */
     search_complex?: string;
+    {{#each searchTypes}}
+    {{{this}}}
+    {{/each}}
   };
 
   export type response = pageinator & { list: item[] };
@@ -43,6 +46,9 @@ export default async (req?: typeLists.request): Promise<typeLists.response> => {
 function preFormater(req?: typeLists.request): typeLists.request {
   return {
     search_complex: req ? req.search_complex : undefined,
+    {{#each searchTypesFormater}}
+    {{{this}}}
+    {{/each}}
     sort: req ? req.sort : undefined,
     sort_type: req ? req.sort_type : undefined,
     count: req ? req.count : undefined,

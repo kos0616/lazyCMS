@@ -3,11 +3,17 @@ module.exports = (D) => {
   /** 清掉最後一段的 lists */
   const BASE_API = D.API.replace(/(\/lists|\/create)/, "");
   const types = generateType(D.form);
+  /** 列表搜尋參數 */
+  const searchTypes = generateSearchType(D.form);
+  /** 列表搜尋送出前的格式化 */
+  const searchTypesFormater = generateSearchTypeFormater(D.form);
 
   const data = {
     ...D,
     BASE_API,
     types,
+    searchTypes,
+    searchTypesFormater,
   };
 
   const actions = [
@@ -80,6 +86,26 @@ function generateType(form) {
     ])
     .reduce((cur, nex) => [...cur, ...nex], []);
 }
+
+function generateSearchType(form) {
+  return form
+    .map((f) => [
+      /** 上方註解 */
+      `/** ${f.intro} ${f.memo} */`,
+      /** 下方 type script */
+      `search_${f.id}?: ${getOpt(f.spec.options) || f.type}${
+        f.spec.isArray ? "[]" : ""
+      };`,
+    ])
+    .reduce((cur, nex) => [...cur, ...nex], []);
+}
+
+function generateSearchTypeFormater(form) {
+  return form
+    .map((f) => [`search_${f.id}: req ? req.search_${f.id} : undefined,`])
+    .reduce((cur, nex) => [...cur, ...nex], []);
+}
+
 /**
  * 取得選項
  * @param {{key:string,value:string}[]} opt
