@@ -1,7 +1,7 @@
 /** 建立 Service/*ts */
 module.exports = (D) => {
   /** 清掉最後一段的 lists */
-  const BASE_API = D.API.replace("/lists", "");
+  const BASE_API = D.API.replace(/(\/lists|\/create)/, "");
   const types = generateType(D.form);
 
   const data = {

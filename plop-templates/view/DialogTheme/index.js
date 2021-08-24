@@ -13,7 +13,7 @@
 
 /** 建立 router 與 *vue 檔 */
 module.exports = (D) => {
-  const BASE = D.API.replace("/lists", "");
+  const BASE = D.API.replace(/(\/lists|\/create)/, "");
   const BASE_NAME = BASE.replace("/", "-");
 
   const ARR = BASE.split("/");
