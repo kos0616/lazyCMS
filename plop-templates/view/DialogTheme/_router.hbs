@@ -4,6 +4,7 @@
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-lists',
     component: () =>
       import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/lists.vue'),
+    props: true,
     meta: {
       title: '{{NODE}}',
       url: '{{API_AUTH}}',

@@ -4,6 +4,7 @@
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-lists',
     component: () =>
       import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/lists.vue'),
+    props: true,
     meta: {
       title: '{{NODE}}',
       url: '{{API_AUTH}}',
@@ -15,6 +16,7 @@
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-create',
     component: () =>
       import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/create.vue'),
+    props: true,
     meta: {
       title: '{{NODE}}',
       url: '{{API_AUTH}}',
@@ -27,6 +29,7 @@
     props: true,
     component: () =>
       import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/info.vue'),
+    props: true,
     meta: {
       title: '{{NODE}}',
       url: '{{API_AUTH}}',
@@ -39,6 +42,7 @@
     props: true,
     component: () =>
       import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/modify.vue'),
+    props: true,
     meta: {
       title: '{{NODE}}',
       url: '{{API_AUTH}}',
