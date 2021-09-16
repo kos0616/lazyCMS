@@ -5,7 +5,7 @@ const API_AUTH = inputs.API_AUTH.trim();
 const form = inputs.settedForm;
 const { key, NODE } = inputs;
 const folder = API.split("/")[1]; /* 過濾出 folder 的路徑 */
-
+// test
 /** 整理問題 */
 const setPrompts = require("./lib/setPrompts");
 const Service = require("./plop-templates/Service/index");
