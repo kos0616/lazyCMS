@@ -5,11 +5,11 @@ const API = '{{BASE_API}}/info';
 
 export namespace typeInfo {
   export type request = {
-    {{key}}: number
+    {{key}}: number;
   };
 
   export type response = {
-    {{key}}: number
+    {{key}}: number;
     {{#each types}}
     {{{this}}}
     {{/each}}

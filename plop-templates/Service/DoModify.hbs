@@ -7,7 +7,7 @@ const API = '{{BASE_API}}/doModify';
 
 export namespace typeDoModify {
   export type request = {
-    {{key}}: number
+    {{key}}: number;
     {{#each types}}
     {{{this}}}
     {{/each}}
