@@ -12,6 +12,7 @@ const Service = require("./plop-templates/Service/index");
 const Core = require("./plop-templates/view/Core/index");
 const BasicTheme = require("./plop-templates/view/BasicTheme/index");
 const DialogTheme = require("./plop-templates/view/DialogTheme/index");
+const SelectorTableTheme = require("./plop-templates/view/SelectorTableTheme/index");
 
 const FOLDER = {
   description: "API 文件轉為資料夾並且輸出",
@@ -62,6 +63,9 @@ function setTheme(themeType, res) {
   }
   if (themeType === "Basic") {
     Theme = BasicTheme(res);
+  }
+  if (themeType === "SelectorTable") {
+    Theme = SelectorTableTheme(res);
   }
   return Theme;
 }
