@@ -1,6 +1,8 @@
 import errorCode from '../../errorCode'; // 進行後端error code提示
 import $http from '@/modules/FPKG-230000-BackendCore/prototypes/axios'; // 後端溝通
+{{#unless subList}}
 import $store from '@/modules/FPKG-50000-Vuex/index'; // lists 與axios溝通
+{{/unless}}
 
 const API = '{{BASE_API}}/lists';
 
@@ -30,7 +32,9 @@ export default async (req?: typeLists.request): Promise<typeLists.response> => {
     .then(d => {
       if (d.data.code === 0) {
         const result = d.data.response;
+        {{#unless subList}}
         $store.dispatch('getList', result);
+        {{/unless}}
         if (result.list !== null && result.list.length) {
           return result;
         }

@@ -1,3 +1,7 @@
+const formater = require("../../Service/lib/formater");
+const { generateType, generateSearchType, generateSearchTypeFormater } =
+  formater;
+
 /*
   form: 
   {{key: string,
@@ -20,11 +24,25 @@ module.exports = (D) => {
   const ROUTER_FIRST = ARR[0];
   const ROUTER_LAST = ARR[1];
 
+  /** 清掉最後一段的 lists */
+  const BASE_API = D.API.replace(/(\/lists|\/create)/, "");
+  const types = generateType(D.form);
+  /** 列表搜尋參數 */
+  const searchTypes = generateSearchType(D.form);
+  /** 列表搜尋送出前的格式化 */
+  const searchTypesFormater = generateSearchTypeFormater(D.form);
+
   const data = {
     ...D,
     BASE_NAME,
     BASE,
     ROUTER_FIRST,
+    ROUTER_LAST,
+    BASE_API,
+    types,
+    searchTypes,
+    searchTypesFormater,
+    subList: true,
   };
 
   /* ROUTER NEED: account/manage/lists, module_account-name, cutted path, key */
@@ -33,40 +51,22 @@ module.exports = (D) => {
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
-      path: `dist/_router.ts`, //文件创建路径
-      templateFile: "plop-templates/view/BasicTheme/_router.hbs", //文件模板
-      data: {
-        ...D,
-        ROUTER_FIRST,
-        ROUTER_LAST,
-      },
-    },
-    {
-      type: "add", //类型创建模板文件
-      force: true, // 檔案重複時，強制覆蓋
-      path: `dist/${D.folder}/create.vue`, //文件创建路径
-      templateFile: "plop-templates/view/BasicTheme/create.hbs", //文件模板
+      path: `dist/${D.folder}/components/${ROUTER_LAST}Lists.vue`, //文件创建路径
+      templateFile: "plop-templates/view/SelectorTableTheme/lists.hbs", //文件模板
       data,
     },
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
-      path: `dist/${D.folder}/info.vue`, //文件创建路径
-      templateFile: "plop-templates/view/BasicTheme/info.hbs", //文件模板
+      path: `dist/${data.folder}/Service/${ROUTER_LAST}Lists.ts`, //文件创建路径
+      templateFile: "plop-templates/Service/Lists.hbs", //文件模板
       data,
     },
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
-      path: `dist/${D.folder}/lists.vue`, //文件创建路径
-      templateFile: "plop-templates/view/BasicTheme/lists.hbs", //文件模板
-      data,
-    },
-    {
-      type: "add", //类型创建模板文件
-      force: true, // 檔案重複時，強制覆蓋
-      path: `dist/${D.folder}/modify.vue`, //文件创建路径
-      templateFile: "plop-templates/view/BasicTheme/modify.hbs", //文件模板
+      path: `dist/_locale.json`, //文件创建路径
+      templateFile: "plop-templates/view/SelectorTableTheme/locale.hbs", //文件模板
       data,
     },
   ];
