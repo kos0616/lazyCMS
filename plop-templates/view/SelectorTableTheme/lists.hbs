@@ -19,7 +19,6 @@
       <el-table-column :label="$i18n.global.t('Util.insert')" width="80">
         <template #default="prop">
           <el-button
-            v-if="CRUD & 1"
             @click="$emit('add', prop.row)"
             :title="$i18n.global.t('Util.insert')"
             :disabled="exists.includes(prop.row.{{key}})"
