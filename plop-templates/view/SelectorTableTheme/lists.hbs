@@ -3,7 +3,7 @@
     <pager
       @searching="handleSearch"
       :paginator="paginator"
-      :placeholder="`$i18n.global.t('{{properCase ROUTER_FIRST}}.{{ROUTER_LAST}}.placeholder')`"
+      :placeholder="$i18n.global.t('{{properCase ROUTER_FIRST}}.{{ROUTER_LAST}}.placeholder')"
       :config="{ defaultSearch_complex }"
     />
     <el-table
@@ -33,22 +33,29 @@
 
       <el-table-column
         :label="$i18n.global.t('{{properCase ROUTER_FIRST}}.{{ROUTER_LAST}}.{{form.0.key}}')"
-        :prop="{{form.0.id}}"
+        prop="{{form.0.id}}"
       />
     </el-table>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, toRefs, reactive, onMounted, watch } from 'vue';
+import {
+  defineComponent,
+  PropType,
+  toRefs,
+  reactive,
+  onMounted,
+  watch
+} from 'vue';
 import pager from '@/modules/FPKG-230000-BackendCore/components/pager.vue';
-import Lists, { typeLists } from '../Service/${ROUTER_LAST}Lists';
+import Lists, { typeLists } from '../Service/{{ROUTER_LAST}}Lists';
 
 export default defineComponent({
   name: '{{dashCase BASE_NAME}}--subLists',
   components: { pager },
   props: {
-    exists: { type: Array as PropType number[], default: () => [] },
+    exists: { type: Array as PropType<number[]>, default: () => [] },
   },
   setup(props) {
     const data = reactive({
