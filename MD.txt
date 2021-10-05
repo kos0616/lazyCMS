@@ -1,33 +1,13 @@
 NODE_72
-p37_ydlg_id
+p37_ydcce_id
 PKG-370000-YrDiaryLog
 派工單 > 總覽 API
 此項目權限依附於 yrDiaryLog/manage/lists
 新增(程序)
 
 項目	內容	說明	驗證	備註
-路徑	yrDiaryLog/manage/create			
-方法	POST			
+路徑	yrDiaryLog/manage-customerCare/lists			
+方法	GET			
 權限	新增			
 參數				
-p37_ydlg_customer_no	客戶編號	必填,最長16字元	
-p37_ydlg_customer_name	客戶名稱	必填,最長16字元	
-p37_ydlg_customer_contact	客戶聯絡方式	必填,最長32字元	
-p37_ydlg_customer_address	客戶地址	必填,最長128字元	
-p37_ydlg_contract_no	合約編號	最長16字元	
-p37_ydlg_machine_no	機器編號	最長16字元	
-p37_ydlg_machine_position	機器放置地	最長64字元	
-p37_ydlg_notice	派送備註	最長124字元	
-p37_ydcce_id	客戶關懷ID	必填	
-p37_ydlg_category_id	分類ID	必填	
-p37_ydlg_status_id	狀態ID	必填	
-p37_ydlg_arrive_time	到達時間	必填,date_format:yyyy-mm-dd HH:ii:ss	
-p37_ydlg_leave_time	離開時間	必填,date_format:yyyy-mm-dd HH:ii:ss	
-p37_ydlg_content	內容		
-p37_ydlg_paper_black_and_white_color	計張(黑白不分尺寸)	整數	
-p37_ydlg_paper_a3_full_color	計張(A3彩色)	整數	
-p37_ydlg_paper_a4_full_color	計張(A4彩色)	整數	
-p3_ant_id	執行人ID	整數	
-p37_ydlg_case_closed_time	結案時間	date_format:yyyy-mm-dd HH:ii:ss	
-p37_ydlg_uncollected_funds	未收款項	整數	
-
+p37_ydcce_name	客戶關懷名稱		

@@ -51,14 +51,14 @@ module.exports = (D) => {
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
-      path: `dist/${D.folder}/components/${ROUTER_LAST}Lists.vue`, //文件创建路径
+      path: `dist/SelectorTableTheme/components/${ROUTER_LAST}Lists.vue`, //文件创建路径
       templateFile: "plop-templates/view/SelectorTableTheme/lists.hbs", //文件模板
       data,
     },
     {
       type: "add", //类型创建模板文件
       force: true, // 檔案重複時，強制覆蓋
-      path: `dist/${data.folder}/Service/${ROUTER_LAST}Lists.ts`, //文件创建路径
+      path: `dist/SelectorTableTheme/Service/${ROUTER_LAST}Lists.ts`, //文件创建路径
       templateFile: "plop-templates/Service/Lists.hbs", //文件模板
       data,
     },
