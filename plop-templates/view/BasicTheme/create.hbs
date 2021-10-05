@@ -65,7 +65,7 @@ export default defineComponent({
       const getter = await Create(data.form);
       if (getter) {
         if (!data.keepCreate) {
-          router.push('/{{API}}');
+          router.push('/{{BASE}}/lists');
         }
         resetForm();
         data.keepCreate = false;
