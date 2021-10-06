@@ -31,7 +31,8 @@ Run
 ## 未來功能
 
 1. Object array
+2. Date picker
 
 ## BUG
 
-* [ ] create後 push 路徑有異常
+* [X] create後 push 路徑有異常
