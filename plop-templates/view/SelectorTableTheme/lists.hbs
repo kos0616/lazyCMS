@@ -4,7 +4,6 @@
       @searching="handleSearch"
       :paginator="paginator"
       :placeholder="$i18n.global.t('{{properCase ROUTER_FIRST}}.{{ROUTER_LAST}}.placeholder')"
-      :config="{ defaultSearch_complex }"
     />
     <el-table
       v-loading="$store.state.loading.isShow"
