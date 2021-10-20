@@ -32,6 +32,7 @@ Run
 
 1. Object array
 2. Date picker
+3. fileUpload
 
 ## BUG
 
