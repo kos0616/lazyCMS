@@ -17,7 +17,7 @@ const { generateType, generateSearchType, generateSearchTypeFormater } =
 
 /** 建立 router 與 *vue 檔 */
 module.exports = (D) => {
-  const BASE = D.API.replace(/(\/lists|\/create)/, "");
+  const BASE = D.API.replace(/(\/lists|\/create|\/doCreate)/, "");
   const BASE_NAME = BASE.replace("/", "-");
 
   const ARR = BASE.split("/");
@@ -25,7 +25,7 @@ module.exports = (D) => {
   const ROUTER_LAST = ARR[1];
 
   /** 清掉最後一段的 lists */
-  const BASE_API = D.API.replace(/(\/lists|\/create)/, "");
+  const BASE_API = D.API.replace(/(\/lists|\/create|\/doCreate)/, "");
   const types = generateType(D.form);
   /** 列表搜尋參數 */
   const searchTypes = generateSearchType(D.form);

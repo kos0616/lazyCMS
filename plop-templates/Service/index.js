@@ -5,7 +5,7 @@ const { generateType, generateSearchType, generateSearchTypeFormater } =
 /** 建立 Service/*ts */
 module.exports = (D) => {
   /** 清掉最後一段的 lists */
-  const BASE_API = D.API.replace(/(\/lists|\/create)/, "");
+  const BASE_API = D.API.replace(/(\/lists|\/create|\/doCreate)/, "");
   const types = generateType(D.form);
   /** 列表搜尋參數 */
   const searchTypes = generateSearchType(D.form);

@@ -7,7 +7,7 @@
 
 /** 建立 必須的 form 與 語系 以及共通的 advSearch */
 module.exports = (D) => {
-  const BASE = D.API.replace(/(\/lists|\/create)/, "");
+  const BASE = D.API.replace(/(\/lists|\/create|\/doCreate)/, "");
   const BASE_NAME = BASE.replace("/", "-");
 
   const ARR = BASE.split("/");
