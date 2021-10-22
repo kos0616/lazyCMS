@@ -67,8 +67,10 @@ export default defineComponent({
     /** 送出表單 */
     const handleSubmitForm = async () => {
       await submitForm();
-      await DoModify(data.form);
-      backToList();
+      const getter = await DoModify(data.form);
+      if(getter) {
+        backToList();
+      }
     };
 
     onMounted(() => {
