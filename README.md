@@ -37,3 +37,4 @@ Run
 ## BUG
 
 * [X] create後 push 路徑有異常
+* [ ] MOMO 命名規則 說明與驗證位置可能會調換
