@@ -1,13 +1,16 @@
-NODE_35
-p28_ytor_id
-PKG-370000-YrDiaryLog
-物流管理 > 物流總表 API
-此項目權限依附於 yrWarehouse/transferOrder-imdFile/lists
+NODE_110
+p41_mne_id
+PKG-280000-YrWarehouse
+進銷存 > 中古零件 > 申請 API
+此項目權限依附於 yrFaq/usedMaterials-apply/lists
 新增(程序)
 
 項目	內容	說明	驗證	備註
-路徑	yrWarehouse/transferOrder-imdFile/lists		
+路徑	yrFaq/usedMaterials-apply/lists		
 方法	POST			
 權限	新增			
 參數				
-p28_ytor_serial_number	單號	string	
+
+參數	說明	備註
+p41_mne_name	名稱	
+p41_mne_status	狀態	3.啟用 -2.停用
