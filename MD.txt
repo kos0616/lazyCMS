@@ -12,5 +12,18 @@ PKG-280000-YrWarehouse
 參數				
 
 參數	說明	備註
-p41_mne_name	名稱	
-p41_mne_status	狀態	3.啟用 -2.停用
+p41_bnd_id	廠牌ID	必填	
+p41_mne_id	機型ID	必填	
+p41_ums_category_name	分類說明	最長32字元	參閱#629第二點分類說明
+p41_ums_p28_yfy_name	廠別	必填,最長32字元	
+p41_ums_p28_yfy_code	廠別代碼	必填,最長8字元	
+p41_ums_customer_name	客戶名稱	必填,最長32字元	
+p41_ums_customer_no	客戶編號	必填,最長16字元	
+p41_ums_part_no	料號	必填,最長32字元	
+p41_ums_number	數量	必填,最小1	
+p41_ums_fault_machine	故障機號	必填,最長16字元	
+p41_ums_logistics_method	運送方式	必填,in{1,2}	1.自取 2.物流
+p41_ums_expected_pick_date	預計取料日期	必填,date_format:yyyy-mm-dd	
+p41_ums_logistics_method	預計取料時段	必填,in{1,2,3}	1.上午 2.下午 3.全天
+p41_ums_fault_describe	故障原因	最長256字元	
+p41_ums_memo	備註	最長256字元	

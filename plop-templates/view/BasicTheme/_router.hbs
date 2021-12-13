@@ -3,7 +3,7 @@
     path: '{{ROUTER_LAST}}/lists',
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-lists',
     component: () =>
-      import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/lists.vue'),
+      import(/* webpackChunkName: "{{constantCase ROUTER_FIRST}}" */ './{{folder}}/lists.vue'),
     props: true,
     meta: {
       title: '{{NODE}}',
@@ -15,7 +15,7 @@
     path: '{{ROUTER_LAST}}/create',
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-create',
     component: () =>
-      import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/create.vue'),
+      import(/* webpackChunkName: "{{constantCase ROUTER_FIRST}}" */ './{{folder}}/create.vue'),
     props: true,
     meta: {
       title: '{{NODE}}',
@@ -28,7 +28,7 @@
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-info',
     props: true,
     component: () =>
-      import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/info.vue'),
+      import(/* webpackChunkName: "{{constantCase ROUTER_FIRST}}" */ './{{folder}}/info.vue'),
     meta: {
       title: '{{NODE}}',
       url: '{{API_AUTH}}',
@@ -40,7 +40,7 @@
     name: '{{ROUTER_FIRST}}-{{ROUTER_LAST}}-modify',
     props: true,
     component: () =>
-      import(/* webpackChunkName: "{{properCase ROUTER_FIRST}}" */ './{{folder}}/modify.vue'),
+      import(/* webpackChunkName: "{{constantCase ROUTER_FIRST}}" */ './{{folder}}/modify.vue'),
     meta: {
       title: '{{NODE}}',
       url: '{{API_AUTH}}',
