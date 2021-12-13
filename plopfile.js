@@ -3,7 +3,7 @@ const inputs = require("./lib/fileReader");
 const API = inputs.API_PATH.trim();
 const API_AUTH = inputs.API_AUTH.trim();
 const form = inputs.settedForm;
-const { key, NODE } = inputs;
+const { key, NODE, CHUNK } = inputs;
 const folder = API.split("/")[1]; /* 過濾出 folder 的路徑 */
 // test
 /** 整理問題 */
@@ -29,12 +29,10 @@ const FOLDER = {
 
     if (data.confirm === false)
       throw new Error("使用者確認欄位錯誤，中斷操作!");
-    const res = { API, API_AUTH, ...data, folder, key, form, NODE };
+    const res = { API, API_AUTH, ...data, folder, key, form, NODE, CHUNK };
 
     if (data.themeType === "SelectorTable") {
-      return [
-      ...setTheme(data.themeType, res),
-      ]
+      return [...setTheme(data.themeType, res)];
     }
 
     const actions = [
