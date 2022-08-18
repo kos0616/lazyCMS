@@ -3,20 +3,18 @@ import $http from '@/modules/FPKG-230000-BackendCore/prototypes/axios'; // å¾Œç«
 
 const API = '{{BASE_API}}/info';
 
-export namespace typeInfo {
-  export type request = {
-    {{key}}: number;
-  };
+export type request = {
+  {{key}}: number;
+};
 
-  export type response = {
-    {{key}}: number;
-    {{#each types}}
-    {{{this}}}
-    {{/each}}
-  };
-}
+export type response = {
+  {{key}}: number;
+  {{#each types}}
+  {{{this}}}
+  {{/each}}
+};
 
-export default async (params: typeInfo.request): Promise<typeInfo.response> => {
+export default async (params: request): Promise<response> => {
   return $http
     .get(API, { params })
     .then(d => {

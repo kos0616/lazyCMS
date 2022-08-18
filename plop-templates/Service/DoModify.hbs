@@ -5,15 +5,14 @@ import $i18n from '@/modules/FPKG-230000-BackendCore/lang';
 
 const API = '{{BASE_API}}/doModify';
 
-export namespace typeDoModify {
-  export type request = {
-    {{key}}: number;
-    {{#each types}}
-    {{{this}}}
-    {{/each}}
-  };
-}
-export default async (request: typeDoModify.request) => {
+export type request = {
+  {{key}}: number;
+  {{#each types}}
+  {{{this}}}
+  {{/each}}
+};
+
+export default async (request: request) => {
   return $http
     .put(API, request)
     .then(d => {

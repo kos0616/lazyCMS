@@ -8,7 +8,7 @@
   >
     {{#each form}}
     <el-form-item
-      :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+      :label="$t(inputForm.{{this.key}}.label)"
       :prop="inputForm.{{this.key}}.id"
       :rules="inputForm.{{this.key}}.rules"
     >
@@ -19,15 +19,15 @@
     <div>
       <el-button native-type="submit" type="success">
         <i class="fa-fw fas fa-save"></i>
-        \{{ $i18n.global.t('Theme.save') }}
+        \{{ $t('Theme.save') }}
       </el-button>
       <el-button
         @click="$emit('close')"
-        :title="$i18n.global.t('Theme.cancel')"
+        :title="$t('Theme.cancel')"
         class="border-0"
       >
-        <icon icon="fas fa-times"></icon>
-        \{{ $i18n.global.t('Theme.cancel') }}
+        <i class="fas fa-times"></i>
+        \{{ $t('Theme.cancel') }}
       </el-button>
     </div>
   </el-form>

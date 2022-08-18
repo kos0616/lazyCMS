@@ -5,7 +5,7 @@ import errorCode from '../../errorCode'; // 進行後端error code提示
 
 const API = '{{BASE_API}}/create';
 
-export namespace typeCreate {
+export type request {
   export type request = {
     {{#each types}}
     {{{this}}}
@@ -13,7 +13,7 @@ export namespace typeCreate {
   };
 }
 
-const Create = async (request: typeCreate.request) => {
+export default async (request: request) => {
   return $http
     .post(API, request)
     .then(d => {
@@ -27,5 +27,3 @@ const Create = async (request: typeCreate.request) => {
       errorCode(d.data);
     });
 };
-
-export default Create;

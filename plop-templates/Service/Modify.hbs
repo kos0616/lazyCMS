@@ -1,18 +1,16 @@
 import errorCode from '../../errorCode'; // 進行後端error code提示
 import $http from '@/modules/FPKG-230000-BackendCore/prototypes/axios'; // 後端溝通
-import { typeInfo as typeProto } from './Info';
+import { response as typeProto } from './Info';
 
 const API = '{{BASE_API}}/modify';
 
-export namespace typeModify {
-  export type request = typeProto.request;
+export type request = typeProto.request;
 
-  export type response = typeProto.response;
-}
+export type response = typeProto.response;
 
 export default async (
-  params: typeModify.request,
-): Promise<typeModify.response> => {
+  params: request,
+): Promise<response> => {
   return $http
     .get(API, { params })
     .then(d => {

@@ -10,6 +10,7 @@
       key="pc"
       highlight-current-row
       @selection-change="handleSelectionChange"
+      @sort-change="sortChange"
       fit
       border
       size="mini"
@@ -18,7 +19,7 @@
       {{#each form}}
       {{#if this.spec.options}}
       <el-table-column
-        :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+        :label="$t(inputForm.{{this.key}}.label)"
         :prop="inputForm.{{this.key}}.id"
       >
         <template #default="prop">
@@ -30,17 +31,17 @@
       </el-table-column>
       {{else}}
       <el-table-column
-        :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+        :label="$t(inputForm.{{this.key}}.label)"
         :prop="inputForm.{{this.key}}.id"
       />
       {{/if}}
       {{/each}}
-      <el-table-column :label="$i18n.global.t('Util.operate')" width="200">
+      <el-table-column :label="$t('Util.operate')" width="200">
         <template #default="prop">
           <router-link
             v-if="CRUD & 4"
             :to="`/{{BASE}}/info/${prop.row.{{~key~}} }`"
-            :title="$i18n.global.t('Util.view')"
+            :title="$t('Util.view')"
             class="el-button el-button--info el-button--small"
           >
             <i class="el-icon-view" />
@@ -48,15 +49,15 @@
           <router-link
             v-if="CRUD & 2"
             :to="`/{{BASE}}/modify/${prop.row.{{~key~}} }`"
-            :title="$i18n.global.t('Util.edit')"
+            :title="$t('Util.edit')"
             class="el-button el-button--success el-button--small"
           >
-            <icon icon="fas fa-edit" />
+            <i class="fas fa-edit" />
           </router-link>
           <el-button
             v-if="CRUD & 1"
             @click="doDelete(prop.row)"
-            :title="$i18n.global.t('Util.delete')"
+            :title="$t('Util.delete')"
             type="danger"
             size="small"
           >
@@ -74,11 +75,11 @@
       >
         <div class="p-5 bg-light rounded-3">
           <div class="container-fluid py-5">
-            <h3 class="mb-3">\{{ $i18n.global.t('Util.noData') }}</h3>
+            <h3 v-t="'Util.noData'" class="mb-3"></h3>
             <hr />
             <el-button @click="$router.go(-1)" type="primary">
               <i class="fa-fw fas fa-chevron-left"></i>
-              \{{ $i18n.global.t('Theme.back') }}
+              \{{ $t('Theme.back') }}
             </el-button>
           </div>
         </div>
@@ -90,24 +91,24 @@
         v-for="(item, index) in tableData"
         :key="index"
       >
-        <el-form>
+        <el-descriptions :column="1" border>
           {{#each form}}
-          <el-form-item :label="$i18n.global.t(inputForm.{{this.key}}.label)">
+          <el-descriptions-item :label="$t(inputForm.{{this.key}}.label)">
           {{#if this.spec.options}}
             <status
               :value="item[inputForm.{{this.key}}.id]"
               :options="inputForm.{{this.key}}.options"
             />
           {{else}}
-            <span>\{{ item[inputForm.{{this.key}}.id] }}</span>
+            \{{ item[inputForm.{{this.key}}.id] }}
           {{/if}}
-          </el-form-item>
+          </el-descriptions-item>
           {{/each}}
-          <el-form-item :label="$i18n.global.t('Util.operate')">
+          <el-descriptions-item :label="$t('Util.operate')">
             <router-link
               v-if="CRUD & 4"
               :to="`/{{BASE}}/info/${item.{{~key~}} }`"
-              :title="$i18n.global.t('Util.view')"
+              :title="$t('Util.view')"
               class="el-button el-button--info el-button--small"
             >
               <i class="el-icon-view" />
@@ -115,27 +116,27 @@
             <router-link
               v-if="CRUD & 2"
               :to="`/{{BASE}}/modify/${item.{{~key~}} }`"
-              :title="$i18n.global.t('Util.edit')"
+              :title="$t('Util.edit')"
               class="el-button el-button--success el-button--small"
             >
-              <icon icon="fas fa-edit" />
+              <i class="fas fa-edit" />
             </router-link>
             <el-button
               v-if="CRUD & 1"
               @click="doDelete(item)"
-              :title="$i18n.global.t('Util.delete')"
+              :title="$t('Util.delete')"
               type="danger"
               size="small"
             >
               <i class="el-icon-delete"></i>
             </el-button>
-          </el-form-item>
-        </el-form>
+          </el-descriptions-item>
+        </el-descriptions>
       </el-card>
     </div>
     <el-dialog
       v-model="dialogAdvSearch"
-      :title="$i18n.global.t('Theme.AdvancedSearch')"
+      :title="$t('Theme.AdvancedSearch')"
       custom-class="RWD-Dialog"
     >
       <advSearch @close="dialogAdvSearch = false" />
@@ -146,7 +147,7 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted, inject } from 'vue';
 import inputForm from './form';
-import Lists, { typeLists } from './Service/Lists';
+import Lists, { ListsItem, ListsReq } from './Service/Lists';
 import Delete from './Service/Delete';
 import advSearch from './advSearch.vue';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
@@ -157,8 +158,8 @@ export default defineComponent({
   components: { advSearch },
   setup() {
     const data = reactive({
-      tableData: [] as typeLists.item[],
-      selected: [] as typeLists.item[],
+      tableData: [] as ListsItem[],
+      selected: [] as ListsItem[],
       dialogAdvSearch: false,
     });
     const $route = useRoute();
@@ -166,11 +167,11 @@ export default defineComponent({
     const { screenWidth, proxy, CRUD } = utilTools();
 
     // table選擇的項目
-    const handleSelectionChange = (val: typeLists.item[]): void => {
+    const handleSelectionChange = (val: ListsItem[]): void => {
       data.selected = val;
     };
 
-    const getLists = async (params?: typeLists.request) => {
+    const getLists = async (params?: ListsReq) => {
       data.tableData = [];
       const getter = await Lists(params);
       if (getter && Array.isArray(getter.list)) {
@@ -178,7 +179,13 @@ export default defineComponent({
       }
     };
 
-    const doDelete = async (item: typeLists.item[]) => {
+    const sortChange = (
+      column: Record<string, string | number | Record<string, string | number>>
+    ) => {
+      proxy.$store.commit('sortChange', column);
+    };
+
+    const doDelete = async (item: ListsItem[]) => {
       const doDelete = await Delete(item);
       if (doDelete) {
         data.selected = [];
@@ -219,6 +226,7 @@ export default defineComponent({
       contentSize,
       doDelete,
       handleSelectionChange,
+      sortChange,
     };
   },
   beforeRouteUpdate(to, from, next) {

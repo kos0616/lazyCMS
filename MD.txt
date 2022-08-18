@@ -1,29 +1,37 @@
-NODE_110
-p41_mne_id
-PKG-280000-YrWarehouse
-進銷存 > 中古零件 > 申請 API
-此項目權限依附於 yrFaq/usedMaterials-apply/lists
+NODE_313
+cp3_cjcin_id
+CPKG-30000-JuziTransaction
+預充變現 > 審核 API
+此項目權限依附於 juziTransaction/tradingCoin-audit/lists
 新增(程序)
 
 項目	內容	說明	驗證	備註
-路徑	yrFaq/usedMaterials-apply/lists		
+路徑	juziTransaction/tradingCoin-audit/lists		
 方法	POST			
 權限	新增			
 參數				
 
 參數	說明	備註
-p41_bnd_id	廠牌ID	必填	
-p41_mne_id	機型ID	必填	
-p41_ums_category_name	分類說明	最長32字元	參閱#629第二點分類說明
-p41_ums_p28_yfy_name	廠別	必填,最長32字元	
-p41_ums_p28_yfy_code	廠別代碼	必填,最長8字元	
-p41_ums_customer_name	客戶名稱	必填,最長32字元	
-p41_ums_customer_no	客戶編號	必填,最長16字元	
-p41_ums_part_no	料號	必填,最長32字元	
-p41_ums_number	數量	必填,最小1	
-p41_ums_fault_machine	故障機號	必填,最長16字元	
-p41_ums_logistics_method	運送方式	必填,in{1,2}	1.自取 2.物流
-p41_ums_expected_pick_date	預計取料日期	必填,date_format:yyyy-mm-dd	
-p41_ums_logistics_method	預計取料時段	必填,in{1,2,3}	1.上午 2.下午 3.全天
-p41_ums_fault_describe	故障原因	最長256字元	
-p41_ums_memo	備註	最長256字元	
+cp3_cjcin_id	ID	
+cp3_cjcin_serial_number	單號	
+cp3_cjcin_applicant_p3_ant_id	申請人帳號ID	
+cp3_cjcin_inspector_p3_ant_id	審核人帳號ID	null
+cp3_cjcin_j_coin	J幣	
+cp3_cjcin_point	金額	計算手續費後
+cp3_cjcin_handling_fee_rate	手續費率	
+cp3_cjcin_handling_fee	手續費	
+cp3_cjcin_status	狀態	3.已完成 2.處理中 1.申請中(新建立) -2.取消
+cp3_cjcin_trading_type	交易類型	1.預充 2.變現
+cp3_cjcin_contact_person_name	聯絡人名稱	
+cp3_cjcin_communication_type	聯繫方式	1.skype, 2.email 3.telegram
+cp3_cjcin_contact_communication_account	聯繫通訊軟體帳號	
+cp3_cjcin_applicant_memo	申請備註	null
+cp3_cjcin_inspector_memo	審核備註	null
+cp3_cjcin_created_at	建立時間/申請時間	unixtime
+cp3_cjcin_updated_at	建立時間	unixtime
+applicant_account	申請人帳號	
+applicant_member_profile	申請人資訊	
+inspector_account	審核人帳號	
+inspector_member_profile	審核人資訊	
+merchant	商戶	此處有資料代表申請人為商戶
+system_provider	系統商	此處有資料代表申請人為系統商

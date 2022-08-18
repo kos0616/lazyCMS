@@ -3,20 +3,18 @@ import { ElMessageBox } from 'element-plus'; // 取得警告標籤
 import $i18n from '@/modules/FPKG-230000-BackendCore/lang';
 import $http from '@/modules/FPKG-230000-BackendCore/prototypes/axios'; // 後端溝通
 import errorCode from '../../errorCode'; // 進行後端error code提示
-import { typeLists } from './Lists';
+import { item } from './Lists';
 
 const API = '{{BASE_API}}/delete';
 
 const nothingDelete = { message: 'Got nothing to delete' };
 
-namespace typeDelete {
-  export type request = {
-    {{key}}s: number[];
-  };
-}
+export type request = {
+  {{key}}s: number[];
+};
 
 /** 從 vue 注入的項目 */
-export type input = typeLists.item | typeLists.item[];
+export type input = item | item[];
 
 export default async (input: input) => {
   if (!checkItemOK(input)) {
@@ -24,7 +22,7 @@ export default async (input: input) => {
   }
   return confirm(input).then(async () => {
     const guids = getGuid(input);
-    const params: typeDelete.request = { {{key}}s: guids };
+    const params: request = { {{key}}s: guids };
     return $http
       .delete(API, { params })
       .then(d => {

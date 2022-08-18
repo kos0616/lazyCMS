@@ -1,44 +1,36 @@
 <template>
-  <el-form
+  <div
+    class="jz-card md:w-2/3 xl:w-1/2"
     v-loading="$store.state.loading.isShow"
-    label-position="top"
-    class="detail-wrap"
   >
-    <div class="detail" style="width: 100%">
-      <div class="card mb-3">
-        <div class="card-header">
-          \{{ $i18n.global.t('Util.info') }}
-        </div>
-        <div class="card-body d-lg-flex flex-wrap">
-          {{#each form}}
-          <el-form-item
-            :label="$i18n.global.t(inputForm.{{this.key}}.label)"
-            {{#if this.spec.memo}}
-            class="col-12 px-2"
-            {{else}}
-            class="col-lg-6 col-xl-4 px-2"
-            {{/if}}
-          >
-            {{#if this.spec.options}}
-            <status
-              :value="form[inputForm.{{this.key}}.id]"
-              :options="inputForm.{{this.key}}.options"
-            />
-            {{else}}
-            \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
-            {{/if}}
-          </el-form-item>
-          {{/each}}
-        </div>
-      </div>
-    </div>
-  </el-form>
+    <div class="card-header" v-t="'Util.info'"></div>
+    <el-descriptions :column="screenWidth > 767 ? 2 : 1" border>
+      {{#each form}}
+      <el-descriptions-item
+        :label="$t(inputForm.{{this.key}}.label)"
+        align="center"
+        {{#if this.spec.memo}}
+        span="2"
+        {{/if}}
+      >
+        {{#if this.spec.options}}
+        <status
+          :value="form[inputForm.{{this.key}}.id]"
+          :options="inputForm.{{this.key}}.options"
+        />
+        {{else}}
+        \{{ form[inputForm.{{this.key}}.id] || '&nbsp;' }}
+        {{/if}}
+      </el-descriptions-item>
+      {{/each}}
+    </el-descriptions>
+  </div>
 </template>
 
 <script lang='ts'>
 import { reactive, toRefs, onMounted, defineComponent } from 'vue';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
-import Info from './Service/Info';
+import Info, { response } from './Service/Info';
 import inputForm from './form';
 import { useRouter } from 'vue-router';
 
@@ -50,7 +42,7 @@ export default defineComponent({
     const $router = useRouter();
 
     const data = reactive({
-      form: {} as any,
+      form: {} as response,
     });
 
     /**

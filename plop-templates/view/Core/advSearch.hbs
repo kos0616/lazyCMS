@@ -1,40 +1,37 @@
 <template>
   <el-form @submit.prevent="advSearch" @reset.prevent="resetForm" :model="form">
     {{#each form}}
-    {{#if this.spec.memo}}
-    {{else}}
     <el-form-item
-      :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+      :label="$t(inputForm.{{this.key}}.label)"
       :prop="inputForm.{{this.key}}.searchId"
     >
       <el-input
-        :placeholder="$i18n.global.t(inputForm.{{this.key}}.label)"
+        :placeholder="$t(inputForm.{{this.key}}.label)"
         v-model="form[inputForm.{{this.key}}.searchId]"
       />
     </el-form-item>
-    {{/if}}
     {{/each}}
     <hr />
     <div>
       <el-button
-        :title="$i18n.global.t('Theme.search')"
+        :title="$t('Theme.search')"
         native-type="submit"
         type="success"
       >
-        <icon icon="fas fa-search-plus"></icon>
-        \{{ $i18n.global.t('Theme.search') }}
+        <i class="fas fa-search-plus"></i>
+        \{{ $t('Theme.search') }}
       </el-button>
-      <el-button native-type="reset" :title="$i18n.global.t('Theme.clean')">
+      <el-button native-type="reset" :title="$t('Theme.clean')">
         <i class="el-icon-delete"></i>
-        \{{ $i18n.global.t('Theme.clean') }}
+        \{{ $t('Theme.clean') }}
       </el-button>
       <el-button
         @click="$emit('close')"
-        :title="$i18n.global.t('Theme.cancel')"
+        :title="$t('Theme.cancel')"
         class="border-0"
       >
-        <icon icon="fas fa-times"></icon>
-        \{{ $i18n.global.t('Theme.cancel') }}
+        <i class="fas fa-times"></i>
+        \{{ $t('Theme.cancel') }}
       </el-button>
     </div>
   </el-form>

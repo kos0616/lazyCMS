@@ -4,20 +4,16 @@
 
 ## 指令
 
-Install
+Install: `yarn`
 
-`yarn`
-
-Run
-
-`yarn plop`
+Run: `yarn plop`
 
 ## 輸入
 
 1. 打開 MD.txt
 2. 貼上文件中的 Create ，須包含 "此項目權限依附--- /lists" 及 表格內容
 3. 在最上方**手動輸入**主要 `KEY` ，格式是 `pxx_xx_id` (即 info 與 modify 的 `request id`)，因為 Create 文件裡沒有 `KEY`
-4. **手動輸入**`NODE_xx` 作為 `router` 的 `i18n path`
+4. **手動輸入** `NODE_xx` 作為 `router` 的 `i18n path`
 5. 第二行的 `PKG-10000-XXX` 將會作為 `chunk.js` 的命名
 6. 表格內的 **第一筆 KEY** 會自動成為刪除時 **顯示的名稱** ex: 你確定要刪除 `{{ form.p3_ape_name }}` 嗎?
 7. 選項會自動轉為 `<el-select>` ，若為 `'3', '-2' | 'y' , 'n'` 會自動換成 `<el-switch>`
@@ -36,6 +32,3 @@ Run
 3. fileUpload
 
 ## BUG
-
-* [X] create後 push 路徑有異常
-* [ ] MOMO 命名規則 說明與驗證位置可能會調換

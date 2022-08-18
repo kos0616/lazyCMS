@@ -8,7 +8,7 @@
   >
     {{#each form}}
     <el-form-item
-      :label="$i18n.global.t(inputForm.{{this.key}}.label)"
+      :label="$t(inputForm.{{this.key}}.label)"
       :prop="inputForm.{{this.key}}.id"
       :rules="inputForm.{{this.key}}.rules"
     >
@@ -18,28 +18,28 @@
     <hr />
     <div>
       <el-button
-        :title="$i18n.global.t('Theme.saveAndReturn')"
+        :title="$t('Theme.saveAndReturn')"
         native-type="submit"
         type="success"
       >
-        <icon icon="fas fa-save"></icon>
-        \{{ $i18n.global.t('Theme.saveAndReturn') }}
+        <i class="fas fa-save"></i>
+        \{{ $t('Theme.saveAndReturn') }}
       </el-button>
       <el-button
-        :title="$i18n.global.t('Theme.keepCreate')"
+        :title="$t('Theme.keepCreate')"
         @click="keepCreate = true"
         native-type="submit"
       >
-        <icon icon="fas fa-plus"></icon>
-        \{{ $i18n.global.t('Theme.keepCreate') }}
+        <i class="fas fa-plus"></i>
+        \{{ $t('Theme.keepCreate') }}
       </el-button>
       <el-button
         @click="$emit('close')"
-        :title="$i18n.global.t('Theme.cancel')"
+        :title="$t('Theme.cancel')"
         class="border-0"
       >
-        <icon icon="fas fa-times"></icon>
-        \{{ $i18n.global.t('Theme.cancel') }}
+        <i class="fas fa-times"></i>
+        \{{ $t('Theme.cancel') }}
       </el-button>
     </div>
   </el-form>

@@ -7,7 +7,7 @@
   "license": "MIT",
   "author": {
     "name": "Mark Liang",
-    "url": "https://www.notion.so/9db6df3259fc4a65bb40b35d02617a13"
+    "url": "https://github.com/kos0616/lazyCMS"
   },
   "dependencies": {
     "plop": "^2.7.4"
