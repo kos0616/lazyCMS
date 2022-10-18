@@ -38,7 +38,7 @@ export default defineComponent({
   name: '{{dashCase BASE_NAME}}--Info',
   props: ['{{key}}'],
   setup(props) {
-    const { proxy } = utilTools();
+    const { screenWidth, proxy } = utilTools();
     const $router = useRouter();
 
     const data = reactive({
@@ -71,6 +71,7 @@ export default defineComponent({
 
     return {
       ...refData,
+      screenWidth,
       inputForm,
     };
   },
