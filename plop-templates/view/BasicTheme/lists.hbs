@@ -147,7 +147,7 @@
 <script lang="ts">
 import { defineComponent, reactive, toRefs, onMounted, inject } from 'vue';
 import inputForm from './form';
-import Lists, { ListsItem, ListsReq } from './Service/Lists';
+import Lists, { item, request } from './Service/Lists';
 import Delete from './Service/Delete';
 import advSearch from './advSearch.vue';
 import { utilTools } from '@/modules/FPKG-20000-Util/prototypes/utilTools';
@@ -158,8 +158,8 @@ export default defineComponent({
   components: { advSearch },
   setup() {
     const data = reactive({
-      tableData: [] as ListsItem[],
-      selected: [] as ListsItem[],
+      tableData: [] as item[],
+      selected: [] as item[],
       dialogAdvSearch: false,
     });
     const $route = useRoute();
@@ -167,11 +167,11 @@ export default defineComponent({
     const { screenWidth, proxy, CRUD } = utilTools();
 
     // table選擇的項目
-    const handleSelectionChange = (val: ListsItem[]): void => {
+    const handleSelectionChange = (val: item[]): void => {
       data.selected = val;
     };
 
-    const getLists = async (params?: ListsReq) => {
+    const getLists = async (params?: request) => {
       data.tableData = [];
       const getter = await Lists(params);
       if (getter && Array.isArray(getter.list)) {
@@ -185,7 +185,7 @@ export default defineComponent({
       proxy.$store.commit('sortChange', column);
     };
 
-    const doDelete = async (item: ListsItem[]) => {
+    const doDelete = async (item: item[]) => {
       const doDelete = await Delete(item);
       if (doDelete) {
         data.selected = [];
